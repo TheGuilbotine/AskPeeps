@@ -6,7 +6,7 @@ import './Feed.css'
 
 
 export default function FeedPage() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const questions = Object.values(useSelector((state) => state.questions));
 
     useEffect(() => {

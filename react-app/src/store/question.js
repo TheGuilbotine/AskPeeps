@@ -30,6 +30,28 @@ export const getQuestions = () => async dispatch => {
     }
 };
 
+// TODO: Get all questions of one user
+// TODO: Get one question(might not be necessary)
+
+export const createQuestion = (userId, question, answered) => async dispatch => {
+    const res = await fetch('/api/questions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: userId,
+            question,
+            answered
+        })
+    });
+    const question = await res.json();
+    if (res.ok) {
+        dispatch(addQuestion(question));
+        return question
+    }
+};
+
 
 
 const initialState = [];
@@ -58,6 +80,13 @@ const questionsReducer = (state = {}, action) => {
             action.questions.forEach(question => {
                 newState[question.id] = question
             })
+            return newState;
+        }
+        case CREATE_QUESTION: {
+            const newState = {
+                ...state,
+                [action.question.id]: action.question
+            };
             return newState;
         }
         default:
