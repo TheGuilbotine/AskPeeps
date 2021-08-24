@@ -90,9 +90,6 @@ def update_question(id):
     """
     data = request.json
     question = Question.query.get(id)
-    print("------------------------------------")
-    print(question)
-    print("------------------------------------")
     question.question = data["question"]
     question.answered = data["answered"]
 
