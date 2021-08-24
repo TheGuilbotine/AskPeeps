@@ -12,7 +12,10 @@ class User(db.Model, UserMixin):
     f_name = db.Column(db.String(30), nullable=False)
     l_name = db.Column(db.String(30), nullable=False)
     birth_date = db.Column(db.Date, nullable=False)
-    hashed_password = db.Column(db.String(255), nullable=False)
+    hashed_password = db.Column(db.String(300), nullable=False)
+
+    questions = db.relationship("Question", back_populates="user")
+    responses = db.relationship("Response", back_populates="user")
 
     @property
     def password(self):

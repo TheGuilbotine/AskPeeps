@@ -10,6 +10,8 @@ class Question(db.Model):
     answered = db.Column(db.Boolean, nullable=True)
 
     user = db.relationship("User", back_populates="questions")
+    responses = db.relationship(
+        "Response", back_populates="question", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

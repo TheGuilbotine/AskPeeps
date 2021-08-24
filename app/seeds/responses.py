@@ -48,40 +48,40 @@ def seed_responses():
         user_id=3, question_id=5, response="I would say a beach near a mountain."
     )
     response6a = Response(
-        user_id=1, question_id=6, response=""
+        user_id=1, question_id=6, response="The Bahamas are great if you stay in a resort."
     )
     response6b = Response(
-        user_id=1, question_id=6, response=""
+        user_id=2, question_id=6, response="The Catskills are good if you're in the NY area."
     )
     response6c = Response(
-        user_id=1, question_id=6, response=""
+        user_id=1, question_id=6, response="I would also recomened just going to the airport and taking the first flight available. Pack for two different seasons and just go for it."
     )
     response7a = Response(
-        user_id=1, question_id=7, response=""
+        user_id=2, question_id=7, response="Cinnamon!"
     )
     response7b = Response(
-        user_id=1, question_id=7, response=""
+        user_id=3, question_id=7, response="Spearmint!"
     )
     response7c = Response(
-        user_id=1, question_id=7, response=""
+        user_id=2, question_id=7, response="Also I guess it depends on the brand."
     )
     response8a = Response(
-        user_id=1, question_id=8, response=""
+        user_id=1, question_id=8, response="Peanut Butter and Gelly?"
     )
     response8b = Response(
-        user_id=1, question_id=8, response=""
+        user_id=3, question_id=8, response="Jiraffe?"
     )
     response8c = Response(
-        user_id=1, question_id=8, response=""
+        user_id=2, question_id=8, response="Jreat gob juys thanks."
     )
     response9a = Response(
-        user_id=1, question_id=9, response=""
+        user_id=1, question_id=9, response="Into squares I think."
     )
     response9b = Response(
-        user_id=1, question_id=9, response=""
+        user_id=2, question_id=9, response="Definitely into circles."
     )
     response9c = Response(
-        user_id=1, question_id=9, response=""
+        user_id=3, question_id=9, response="I think triangles."
     )
 
     db.session.add(response1a)
