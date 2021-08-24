@@ -12,20 +12,23 @@ def seed_users():
     question3 = Question(
         user_id=3, question="How do I carve a pumpkin?", answered=False
     )
-    question3 = Question(
+    question4 = Question(
         user_id=1, question="Where is room 44?", answered=False
     )
-    question4 = Question(
+    question5 = Question(
         user_id=2, question="Where is a good honeymoon spot?", answered=False
     )
-    question5 = Question(
+    question6 = Question(
         user_id=3, question="Where is a good vacation spot?", answered=False
     )
-    question5 = Question(
+    question7 = Question(
         user_id=1, question="What flavor gum is the best?", answered=False
     )
-    question6 = Question(
+    question8 = Question(
         user_id=2, question="Is it jif or gif?", answered=False
+    )
+    question9 = Question(
+        user_id=3, question="How do you cut a Mango?", answered=False
     )
 
 
