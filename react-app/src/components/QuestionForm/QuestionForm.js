@@ -12,6 +12,9 @@ export default function QuestionForm() {
     const userId = useSelector((state => state.session.user.id))
     const dispatch = useDispatch();
     const history = useHistory();
+    console.log('------------------------------------');
+    console.log('QuestionForm component userID', userId);
+    console.log('------------------------------------');
 
     // useEffect(() => {
 	// 	dispatch();

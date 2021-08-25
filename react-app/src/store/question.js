@@ -43,7 +43,7 @@ export const getUserQuestions = (id) => async dispatch => {
 // TODO: Get one question(might not be necessary)
 
 export const createQuestion = (userId, question, answered) => async dispatch => {
-    const res = await fetch('/api/questions', {
+    const res = await fetch('/api/questions/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,10 +54,13 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
             answered
         })
     });
-    const question = await res.json();
+    const asked_question = await res.json();
+    console.log('------------------------------------');
+    console.log(asked_question);
+    console.log('------------------------------------');
     if (res.ok) {
-        dispatch(addQuestion(question));
-        return question
+        dispatch(addQuestion(asked_question));
+        return asked_question
     }
 };
 
