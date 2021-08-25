@@ -42,12 +42,19 @@ export const createResponse = (userId, questionId, response) => async dispatch =
         })
     });
     const answer = await res.json();
-    console.log('------------------------------------');
-    console.log(answer);
-    console.log('------------------------------------');
     if (res.ok) {
         dispatch(addResponse(answer));
         return answer
+    }
+};
+
+export const destroyResponse = (responseId) => async dispatch => {
+    const deleted = await fetch(`/api/responses/${responseId}`, {
+        method: 'DELETE'
+    });
+    if (deleted) {
+        dispatch(removeResponse(responseId))
+        return deleted;
     }
 };
 
@@ -85,6 +92,11 @@ const responsesReducer = (state = {}, action) => {
                 [action.response.id]: action.response
             };
             return newState;
+        }
+        case DESTROY_RESPONSE: {
+            const newState = {...state};
+            delete newState[action.responseId]
+            return newState
         }
         default:
             return state;

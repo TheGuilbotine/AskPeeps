@@ -9,6 +9,7 @@ import ResponseForm from '../ResponseForm/ResponseForm';
 // import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
+import { destroyResponse } from '../../store/response';
 
 import './Feed.css'
 
@@ -36,6 +37,7 @@ export default function FeedPage() {
                     {question.responses && question.responses?.map((response, idx) => (
                         <div>
                             {response?.username} said, {response.response}
+                            <button className="delete-confirmation-button" onClick={() => dispatch(destroyResponse(response.id))}>Delete</button>
                         </div>
                     ))}
                     <ResponseForm questionId={question?.id} />
