@@ -29,7 +29,7 @@ export const getQuestions = () => async dispatch => {
 
 // TODO: Get all questions of one user
 export const getUserQuestions = (id) => async dispatch => {
-    const res = await fetch(`/api/users/${id}`)
+    const res = await fetch(`/api/users/${id}/`)
 
     if (res.ok) {
         const questions = await res.json();
@@ -59,7 +59,7 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
 };
 
 export const editQuestion = (questionId, userId, question, answered) => async dispatch => {
-    const res = await fetch (`/api/questions/${questionId}`, {
+    const res = await fetch (`/api/questions/${questionId}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
