@@ -40,7 +40,7 @@ export const getUserQuestions = (id) => async dispatch => {
 // TODO: Get one question(might not be necessary)
 
 export const createQuestion = (userId, question, answered) => async dispatch => {
-    const res = await fetch('/api/questions/', {
+    const res = await fetch('/api/questions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -74,11 +74,18 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     const editedQuestion = await res.json();
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
-        console.log('------------------------------------');
-        console.log('THUNK4', editedQuestion);
-        console.log('------------------------------------');
     }
     return editedQuestion;
+};
+
+export const destroyQuestion = (questionId) => async dispatch => {
+    const deleted = await fetch(`/api/questions/${questionId}`, {
+        method: 'DELETE'
+    });
+    if (deleted) {
+        dispatch(removeQuestion(questionId))
+        return deleted;
+    }
 };
 
 
@@ -117,6 +124,11 @@ const questionsReducer = (state = {}, action) => {
                 [action.question.id]: action.question
             };
             return newState;
+        }
+        case DESTROY_QUESTION: {
+            const newState = {...state};
+            delete newState[action.questionId]
+            return newState
         }
         default:
             return state;

@@ -5,6 +5,8 @@ import { getQuestions } from '../../store/question';
 import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
 import QuestionForm from '../QuestionForm/QuestionForm';
 import EditQuestion from '../EditQuestion/EditQuestion';
+// import DeleteQuestionModal from '../DeleteQuestion';
+import { destroyQuestion } from '../../store/question';
 
 import './Feed.css'
 
@@ -18,6 +20,7 @@ export default function FeedPage() {
         // TODO: Add getUsers so that the question populates with username without refresh
     }, [dispatch])
 
+
     return (
         <div>
             {/* <QuestionSideBar /> */}
@@ -26,8 +29,9 @@ export default function FeedPage() {
             {questions && questions?.map((question, idx) => (
                 <div key={idx}>
                     {question?.username}: {question.question}
+                    <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>
                     <EditQuestion questionId={question?.id} />
-                    <button>DELETE</button>
+                    {/* <DeleteQuestionModal questionId={question?.id} /> */}
                 </div>
             ))}
 
