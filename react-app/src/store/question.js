@@ -81,6 +81,16 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     return editedQuestion;
 };
 
+export const destroyQuestion = (questionId) => async dispatch => {
+    const deleted = await fetch(`/api/questions/${questionId}`, {
+        method: 'DELETE'
+    });
+    if (deleted) {
+        dispatch(removeQuestion(questionId))
+        return deleted;
+    }
+};
+
 
 
 const initialState = [];
@@ -117,6 +127,11 @@ const questionsReducer = (state = {}, action) => {
                 [action.question.id]: action.question
             };
             return newState;
+        }
+        case DESTROY_QUESTION: {
+            const newState = {...state};
+            delete newState[action.questionId]
+            return newState
         }
         default:
             return state;
