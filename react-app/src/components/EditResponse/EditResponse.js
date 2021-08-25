@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { editQuestion, getQuestions } from '../../store/question';
+import { getQuestions } from '../../store/question';
 
-import "./EditQuestion.css"
+import './EditResponse.css';
 
 
-export default function EditQuestion({questionId}) {
-    const questionToEdit = useSelector((state) => state.questions[questionId]);
+export default function EditResponse({responseId}) {
+    const responseToEdit = useSelector((state) => state.questions[questionId]);
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
@@ -64,15 +63,6 @@ export default function EditQuestion({questionId}) {
                         value={question}
                         required={true}></input>
 				</div>
-                {/* <div className='form-label__container'>
-                    <label>Has your question been answered?</label>
-                    <input
-                        className='form-input__checkbox'
-                        type='checkbox'
-                        name='answered'
-                        value={answered}
-                        onChange={updateAnswered}></input>
-				</div> */}
                 <button className="question-edit__submit-button" type='submit'>Edit your ask?</button>
             </form>
         </div>

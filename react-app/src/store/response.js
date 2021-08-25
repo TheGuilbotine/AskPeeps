@@ -29,6 +29,26 @@ export const getQuestionResponses = (questionId) => async dispatch => {
     }
 };
 
+export const editQuestion = (responseId, userId, questionId, response) => async dispatch => {
+    const res = await fetch (`/api/responses/${responseId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: responseId,
+            user_id: userId,
+            question_id: questionId,
+            response
+        })
+    });
+    const editedResponse = await res.json();
+    if (res.ok) {
+        dispatch(addResponse(editedResponse))
+    }
+    return editedResponse;
+};
+
 export const createResponse = (userId, questionId, response) => async dispatch => {
     const res = await fetch('/api/responses/', {
         method: 'POST',
