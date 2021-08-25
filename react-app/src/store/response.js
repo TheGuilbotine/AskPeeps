@@ -29,6 +29,28 @@ export const getQuestionResponses = (questionId) => async dispatch => {
     }
 };
 
+export const createResponse = (userId, questionId, response) => async dispatch => {
+    const res = await fetch('/api/responses/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_id: userId,
+            question_id: questionId,
+            response,
+        })
+    });
+    const answer = await res.json();
+    console.log('------------------------------------');
+    console.log(answer);
+    console.log('------------------------------------');
+    if (res.ok) {
+        dispatch(addResponse(answer));
+        return answer
+    }
+};
+
 
 const initialState = [];
 
@@ -55,6 +77,13 @@ const responsesReducer = (state = {}, action) => {
             action.responses.forEach(response => {
                 newState[response.id] = response
             })
+            return newState;
+        }
+        case CREATE_RESPONSE: {
+            const newState = {
+                ...state,
+                [action.response.id]: action.response
+            };
             return newState;
         }
         default:

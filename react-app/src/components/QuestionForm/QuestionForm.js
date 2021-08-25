@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { createQuestion, getQuestions } from '../../store/question';
 import "./QuestionForm.css"
@@ -7,12 +7,12 @@ import "./QuestionForm.css"
 export default function QuestionForm() {
     const [errors, setErrors] = useState([]);
     // const [userId, setUserId] = useState([]);
-    const [question, setQuestion] = useState([]);
-    const [answered, setAnswered] = useState([]);
+    const [question, setQuestion] = useState('');
+    const [answered, setAnswered] = useState('');
     const username = useSelector((state) => state.session.user.username)
     const userId = useSelector((state => state.session.user.id))
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
 		dispatch(getQuestions());
@@ -26,7 +26,7 @@ export default function QuestionForm() {
                 question,
                 answered
             ),
-            );
+        );
         if (data.errors) {
             setErrors(data.errors)
         } else {

@@ -5,6 +5,7 @@ import { getQuestions } from '../../store/question';
 // import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
 import QuestionForm from '../QuestionForm/QuestionForm';
 import EditQuestion from '../EditQuestion/EditQuestion';
+import ResponseForm from '../ResponseForm/ResponseForm';
 // import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
@@ -37,6 +38,7 @@ export default function FeedPage() {
                             {response?.username} said, {response.response}
                         </div>
                     ))}
+                    <ResponseForm questionId={question?.id} />
                     {/* <QuestionResponses questionId={question?.id} /> */}
                     {/* <DeleteQuestionModal questionId={question?.id} /> */}
                 </div>
