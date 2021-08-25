@@ -18,7 +18,7 @@ const removeQuestion = questionId => ({
 })
 
 export const getQuestions = () => async dispatch => {
-    const res = await fetch('/api/questions');
+    const res = await fetch('/api/questions/');
 
     if (res.ok) {
         const questions = await res.json();
@@ -74,15 +74,12 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     const editedQuestion = await res.json();
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
-        console.log('------------------------------------');
-        console.log('THUNK4', editedQuestion);
-        console.log('------------------------------------');
     }
     return editedQuestion;
 };
 
 export const destroyQuestion = (questionId) => async dispatch => {
-    const deleted = await fetch(`/api/questions/${questionId}`, {
+    const deleted = await fetch(`/api/questions/${questionId}/`, {
         method: 'DELETE'
     });
     if (deleted) {
