@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { getQuestions } from '../../store/question';
-import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
+// import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
 import QuestionForm from '../QuestionForm/QuestionForm';
 import EditQuestion from '../EditQuestion/EditQuestion';
+// import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
 
@@ -31,6 +32,12 @@ export default function FeedPage() {
                     {question?.username}: {question.question}
                     <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>
                     <EditQuestion questionId={question?.id} />
+                    {question.responses && question.responses?.map((response, idx) => (
+                        <div>
+                            {response?.username} said, {response.response}
+                        </div>
+                    ))}
+                    {/* <QuestionResponses questionId={question?.id} /> */}
                     {/* <DeleteQuestionModal questionId={question?.id} /> */}
                 </div>
             ))}
