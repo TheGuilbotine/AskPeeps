@@ -1,37 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { createQuestion } from '../../store/question';
-import "./QuestionForm.css"
+import { editQuestion, getQuestions } from '../../store/question';
 
-export default function QuestionForm() {
+import "./EditQuestion.css"
+
+
+export default function EditQuestion({questionId}) {
+    const questionToEdit = useSelector((state) => state.questions[questionId]);
+    const userId = useSelector((state) => state.session.user?.id);
+
     const [errors, setErrors] = useState([]);
-    // const [userId, setUserId] = useState([]);
-    const [question, setQuestion] = useState([]);
-    const [answered, setAnswered] = useState([]);
-    const userId = useSelector((state => state.session.user.id))
+    const [question, setQuestion] = useState(questionToEdit?.question);
+    const [answered, setAnswered] = useState(questionToEdit?.answered);
+
+
     const dispatch = useDispatch();
-    const history = useHistory();
 
     // useEffect(() => {
-	// 	dispatch();
-	// }, [dispatch]);
+    //     dispatch(getQuestions());
+    // }, [dispatch])
 
-    const onCreate = async (e) => {
+    const onEdit = async (e) => {
         e.preventDefault();
         const data = await dispatch(
-            createQuestion(
+            editQuestion(
+                questionId,
                 userId,
                 question,
                 answered
-            )
+            ),
         );
         if (data.errors) {
-            setErrors(data.errors)
+            setErrors(data.errors);
         }
-        setQuestion('');
     };
-
     const updateQuestion = (e) => {
         setQuestion(e.target.value);
     };
@@ -39,11 +42,9 @@ export default function QuestionForm() {
         setAnswered(e.target.value);
     };
 
-    // TODO: Add session links for session user
-
     return (
         <div>
-            <form onSubmit={onCreate} className='question-form'>
+            <form onSubmit={onEdit} className='edit-question__form'>
                 <div>
                     {errors?.map((error, idx) => (
                         <div key={idx}>{error}</div>
@@ -68,7 +69,7 @@ export default function QuestionForm() {
                         value={answered}
                         onChange={updateAnswered}></input>
 				</div>
-                <button className="question__submit-button" type='submit'>Ask peeps?</button>
+                <button className="question-edit__submit-button" type='submit'>Edit your ask?</button>
             </form>
         </div>
     )

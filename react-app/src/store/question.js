@@ -22,9 +22,6 @@ export const getQuestions = () => async dispatch => {
 
     if (res.ok) {
         const questions = await res.json();
-        console.log('------------------------------------');
-        console.log(questions);
-        console.log('------------------------------------');
         dispatch(load(questions.questions));
         return res;
     }
@@ -55,13 +52,33 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
         })
     });
     const asked_question = await res.json();
-    console.log('------------------------------------');
-    console.log(asked_question);
-    console.log('------------------------------------');
     if (res.ok) {
         dispatch(addQuestion(asked_question));
         return asked_question
     }
+};
+
+export const editQuestion = (questionId, userId, question, answered) => async dispatch => {
+    const res = await fetch (`/api/questions/${questionId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: questionId,
+            user_id: userId,
+            question,
+            answered
+        })
+    });
+    const editedQuestion = await res.json();
+    if (res.ok) {
+        dispatch(addQuestion(editedQuestion))
+        console.log('------------------------------------');
+        console.log('THUNK4', editedQuestion);
+        console.log('------------------------------------');
+    }
+    return editedQuestion;
 };
 
 
