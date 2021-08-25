@@ -29,7 +29,6 @@ def questions():
     """
     questions_query = Question.query.all()
     questions = [question.to_dict() for question in questions_query]
-
     for question in questions:
         question["username"] = User.query.get(
             question["user_id"]).username

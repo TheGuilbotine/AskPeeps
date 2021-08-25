@@ -31,15 +31,54 @@ def responses():
     return {"responses": responses}
 
 
-@response_routes.route('/<int:questionId>')
-def specific_responses(questionId):
+# TODO: Need a route for just one response?
+
+
+@response_routes.route('/<int:id>')
+def specific_responses(id):
     """
     Get all responses based on a question
     """
     response_query = Response.query.filter(
-        Response.question_id == questionId).all()
+        Response.question_id == id).all()
     responses = [response.to_dict() for response in response_query]
     print('---------------------------------')
     print(response_query)
     print('---------------------------------')
     return {"responses": responses}
+
+
+@response_routes.route('/', methods=['POST'])
+@login_required
+def create_response():
+    """
+    Creates a new response to a question
+    """
+    form = ResponseForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        response = Response(
+            user_id=form.data["user_id"],
+            question_id=form.data["question_id"],
+            response=form.data["response"]
+        )
+        db.session.add(response)
+        db.session.commit()
+        response_dict = response.to_dict()
+        return {**response_dict}
+    errors = form.errors
+    return {'errors': validation_errors_to_error_messages(errors)}, 401
+
+
+@response_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
+def delete_response(id):
+    """
+    Delete a single response
+    """
+    response = Response.query.get(id)
+
+    db.session.delete(response)
+    db.session.commit()
+
+    return {"message": "SUCCESS"}, 204
