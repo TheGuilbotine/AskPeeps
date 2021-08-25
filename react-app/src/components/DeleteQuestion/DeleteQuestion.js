@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-// import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { destroyQuestion } from '../../store/question';
 
 import './DeleteQuestion.css'
 
-export default function DeleteQuestion({questionId}) {
+export default function DeleteQuestion({questionId, setShowModal}) {
     const dispatch = useDispatch();
-    const { id } = useParams();
 
     const handleDelete = (e) => {
         const deleted = dispatch(destroyQuestion(questionId));

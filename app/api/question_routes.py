@@ -68,7 +68,7 @@ def create_question():
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
 
-@question_routes.route('<int:id>', methods=['DELETE'])
+@question_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_question(id):
     """
@@ -82,7 +82,7 @@ def delete_question(id):
     return {"message": "SUCCESS"}, 204
 
 
-@question_routes.route('<int:id>', methods=['PUT'])
+@question_routes.route('/<int:id>', methods=['PUT'])
 # @login_required
 def update_question(id):
     """
