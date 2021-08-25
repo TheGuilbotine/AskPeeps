@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { getQuestions } from '../../store/question';
 import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
+import QuestionForm from '../QuestionForm/QuestionForm';
+
 import './Feed.css'
 
 
@@ -21,7 +23,8 @@ export default function FeedPage() {
                 <div>
                     {question.username}
                     {question.question}
-                    <QuestionSideBar />
+                    {/* <QuestionSideBar /> */}
+                    <QuestionForm />
                 </div>
             ))}
 

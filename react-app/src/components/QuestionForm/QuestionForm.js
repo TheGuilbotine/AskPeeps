@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createQuestion } from '../../store/question';
 import "./QuestionForm.css"
 
-const QuestionForm = () => {
+export default function QuestionForm() {
     const [errors, setErrors] = useState([]);
     // const [userId, setUserId] = useState([]);
     const [question, setQuestion] = useState([]);
@@ -67,6 +67,7 @@ const QuestionForm = () => {
                         value={answered}
                         onChange={updateAnswered}></input>
 				</div>
+                <button className="question__submit-button" type='submit'>Ask peeps?</button>
             </form>
         </div>
     )
