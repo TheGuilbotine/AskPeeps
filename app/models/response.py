@@ -5,6 +5,7 @@ class Response(db.Model):
     __tablename__ = 'responses'
 
     id = db.Column(db.Integer, primary_key=True)
+    # change username
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey(
         "questions.id"), nullable=False)

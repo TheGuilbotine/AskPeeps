@@ -18,7 +18,7 @@ const removeQuestion = questionId => ({
 })
 
 export const getQuestions = () => async dispatch => {
-    const res = await fetch('/api/questions');
+    const res = await fetch('/api/questions/');
 
     if (res.ok) {
         const questions = await res.json();
@@ -29,7 +29,7 @@ export const getQuestions = () => async dispatch => {
 
 // TODO: Get all questions of one user
 export const getUserQuestions = (id) => async dispatch => {
-    const res = await fetch(`/api/users/${id}`)
+    const res = await fetch(`/api/users/${id}/`)
 
     if (res.ok) {
         const questions = await res.json();
@@ -40,7 +40,7 @@ export const getUserQuestions = (id) => async dispatch => {
 // TODO: Get one question(might not be necessary)
 
 export const createQuestion = (userId, question, answered) => async dispatch => {
-    const res = await fetch('/api/questions', {
+    const res = await fetch('/api/questions/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
         body: JSON.stringify({
             user_id: userId,
             question,
-            answered
+            answered,
         })
     });
     const asked_question = await res.json();
@@ -75,6 +75,9 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
     }
+    console.log('------------------------------------');
+    console.log(editedQuestion);
+    console.log('------------------------------------');
     return editedQuestion;
 };
 

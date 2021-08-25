@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.sql import func
 
 
 class Question(db.Model):
@@ -8,6 +9,13 @@ class Question(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     question = db.Column(db.Text, nullable=False)
     answered = db.Column(db.Boolean, nullable=True)
+    #  TODO: Migrate, Update and reseed
+    #  or use UTC.NOW default=datetime.datetime.utcnow()
+
+    # created_at = db.Column(db.DateTime(timezone=True),
+    #                        nullable=False, server_default=func.now())
+    # updated_at = db.Column(db.DateTime(timezone=True),
+    #                        nullable=False, server_default=func.now(), onupdate=func.now())
 
     user = db.relationship("User", back_populates="questions")
     responses = db.relationship(

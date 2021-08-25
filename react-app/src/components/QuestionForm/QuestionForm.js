@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { createQuestion } from '../../store/question';
+import { createQuestion, getQuestions } from '../../store/question';
 import "./QuestionForm.css"
 
 export default function QuestionForm() {
@@ -9,13 +9,14 @@ export default function QuestionForm() {
     // const [userId, setUserId] = useState([]);
     const [question, setQuestion] = useState([]);
     const [answered, setAnswered] = useState([]);
+    const username = useSelector((state) => state.session.user.username)
     const userId = useSelector((state => state.session.user.id))
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // useEffect(() => {
-	// 	dispatch();
-	// }, [dispatch]);
+    useEffect(() => {
+		dispatch(getQuestions());
+	}, [dispatch]);
 
     const onCreate = async (e) => {
         e.preventDefault();
@@ -24,12 +25,14 @@ export default function QuestionForm() {
                 userId,
                 question,
                 answered
-            )
-        );
+            ),
+            );
         if (data.errors) {
             setErrors(data.errors)
+        } else {
+            dispatch(getQuestions())
+            setQuestion('');
         }
-        setQuestion('');
     };
 
     const updateQuestion = (e) => {
@@ -59,7 +62,7 @@ export default function QuestionForm() {
                         value={question}
                         required={true}></input>
 				</div>
-                <div className='form-label__container'>
+                {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
                         className='form-input__checkbox'
@@ -67,7 +70,7 @@ export default function QuestionForm() {
                         name='answered'
                         value={answered}
                         onChange={updateAnswered}></input>
-				</div>
+				</div> */}
                 <button className="question__submit-button" type='submit'>Ask peeps?</button>
             </form>
         </div>
