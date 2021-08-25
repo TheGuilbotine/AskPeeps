@@ -23,7 +23,7 @@ export default function EditQuestion({questionId}) {
 
     const onEdit = async (e) => {
         e.preventDefault();
-        setQuestion("Loading...")
+        setQuestion("Updating...")
         const data = await dispatch(
             editQuestion(
                 questionId,

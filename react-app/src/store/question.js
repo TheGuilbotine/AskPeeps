@@ -75,9 +75,6 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
     }
-    console.log('------------------------------------');
-    console.log(editedQuestion);
-    console.log('------------------------------------');
     return editedQuestion;
 };
 
