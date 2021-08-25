@@ -1,13 +1,11 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Question, db, User
-from app.forms import QuestionForm, question_form
-from flask_login import current_user, login_user, logout_user, login_required
+from app.models import Question, db, User, Response
+from app.forms import QuestionForm
+from flask_login import login_required
 from datetime import datetime
 
 
 question_routes = Blueprint('questions', __name__)
-
-# Get all questions
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -21,6 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # TODO: secure return so that state doesn't have first and last name
+# Get all questions
 
 
 @question_routes.route('/')
@@ -89,7 +88,7 @@ def delete_question(id):
 
 
 @question_routes.route('/<int:id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_question(id):
     """
     Alter a question
