@@ -27,4 +27,5 @@ class Question(db.Model):
             'user_id': self.user_id,
             'question': self.question,
             'answered': self.answered
+            # TODO/ Add a responses key? pointing to the list of responses response.response for response in self.responses
         }

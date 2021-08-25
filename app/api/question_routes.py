@@ -88,7 +88,7 @@ def delete_question(id):
 
 
 @question_routes.route('/<int:id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_question(id):
     """
     Alter a question

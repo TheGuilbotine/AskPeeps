@@ -71,7 +71,7 @@ def create_response():
 
 
 @response_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_response(id):
     """
     Delete a single response
@@ -82,3 +82,19 @@ def delete_response(id):
     db.session.commit()
 
     return {"message": "SUCCESS"}, 204
+
+
+@response_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_response(id):
+    """
+    Alter a response
+    """
+    data = request.json
+    response = Response.query.get(id)
+    response.response = data["response"]
+
+    db.session.commit()
+    response_dict = response.to_dict()
+
+    return {**response_dict}
