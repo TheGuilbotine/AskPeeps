@@ -59,7 +59,7 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
 };
 
 export const editQuestion = (questionId, userId, question, answered) => async dispatch => {
-    const res = await fetch (`/api/questions/${questionId}/`, {
+    const res = await fetch (`/api/questions/${questionId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -75,6 +75,9 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
     }
+    console.log('------------------------------------');
+    console.log(editedQuestion);
+    console.log('------------------------------------');
     return editedQuestion;
 };
 

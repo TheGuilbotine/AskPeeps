@@ -24,14 +24,15 @@ export default function QuestionForm() {
             createQuestion(
                 userId,
                 question,
-                answered,
-                username
-            )
-        );
+                answered
+            ),
+            );
         if (data.errors) {
             setErrors(data.errors)
+        } else {
+            dispatch(getQuestions())
+            setQuestion('');
         }
-        setQuestion('');
     };
 
     const updateQuestion = (e) => {
@@ -61,7 +62,7 @@ export default function QuestionForm() {
                         value={question}
                         required={true}></input>
 				</div>
-                <div className='form-label__container'>
+                {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
                         className='form-input__checkbox'
@@ -69,7 +70,7 @@ export default function QuestionForm() {
                         name='answered'
                         value={answered}
                         onChange={updateAnswered}></input>
-				</div>
+				</div> */}
                 <button className="question__submit-button" type='submit'>Ask peeps?</button>
             </form>
         </div>

@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import Question, db, User
 from app.forms import QuestionForm, question_form
 from flask_login import current_user, login_user, logout_user, login_required
+from datetime import datetime
 
 
 question_routes = Blueprint('questions', __name__)
@@ -32,6 +33,11 @@ def questions():
     for question in questions:
         question["username"] = User.query.get(
             question["user_id"]).username
+    # sorted_questions = sorted(questions, key=lambda question: datetime.strptime(
+    #     str(question.created_at), "%m-%d-%Y %H:%M:%S.%f"))
+    # sorted_questions = sorted(questions, key=lambda x: datetime.strptime(
+    #     str(x.created_at), "%Y-%m-%d %H:%M:%S.%f"))
+    # sorted_questions.reverse()
     return {"questions": questions}
 
 

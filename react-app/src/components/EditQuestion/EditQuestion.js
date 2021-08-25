@@ -23,6 +23,7 @@ export default function EditQuestion({questionId}) {
 
     const onEdit = async (e) => {
         e.preventDefault();
+        setQuestion("Loading...")
         const data = await dispatch(
             editQuestion(
                 questionId,
@@ -33,6 +34,9 @@ export default function EditQuestion({questionId}) {
         );
         if (data.errors) {
             setErrors(data.errors);
+        } else {
+            dispatch(getQuestions())
+            setQuestion(data.question)
         }
     };
     const updateQuestion = (e) => {
