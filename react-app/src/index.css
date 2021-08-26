@@ -105,6 +105,8 @@ section {
 }
 body {
   line-height: 1;
+  /* background-image: url('./splash-image.jpg');
+  background-size: cover; */
 }
 ol,
 ul {

@@ -123,12 +123,12 @@ const questionsReducer = (state = {}, action) => {
                 ...state,
                 [action.question.id]: action.question
             };
-            // return newState;
-            return {
-                ...newState,
-                ...state,
-                questions: sortList(action.questions),
-              };
+            return newState;
+            // return {
+            //     ...newState,
+            //     ...state,
+            //     questions: sortList(action.questions),
+            //   };
         }
         case DESTROY_QUESTION: {
             const newState = {...state};
