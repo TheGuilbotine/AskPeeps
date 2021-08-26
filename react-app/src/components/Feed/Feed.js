@@ -17,7 +17,7 @@ import './Feed.css'
 
 export default function FeedPage() {
     const dispatch = useDispatch();
-    const questions = Object.values(useSelector((state) => state.questions)).reverse();
+    const questions = Object.values(useSelector((state) => state.questions));
     const sessionUser = useSelector((state) => state.session.user)
 
 
@@ -30,7 +30,7 @@ export default function FeedPage() {
         <div>
             {/* <QuestionSideBar /> */}
             <QuestionForm />
-            <h1>Hello {sessionUser.username} welcome to the Questions Feed</h1>
+            <h1>Hello {sessionUser?.username} welcome to the Questions Feed</h1>
             {questions && questions?.map((question, idx) => (
                 <div key={idx}>
                     {question?.username}: {question.question}
@@ -40,10 +40,10 @@ export default function FeedPage() {
                         <div>
                             {response?.username} said, {response.response}
                             <button className="delete-confirmation-button" onClick={() => dispatch(destroyResponse(response.id))}>Delete</button>
-                            <EditResponse responseId={response.id} questionId={question.id} />
+                            <EditResponse responseId={response?.id} questionId={question?.id} />
                         </div>
                     ))}
-                    <ResponseForm questionId={question?.id} />
+                    {sessionUser && <ResponseForm questionId={question?.id} />}
                     {/* <QuestionResponses questionId={question?.id} /> */}
                     {/* <DeleteQuestionModal questionId={question?.id} /> */}
                 </div>

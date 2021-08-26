@@ -35,15 +35,10 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
-        <ProtectedRoute path='/' exact={true} >
+        {/* <ProtectedRoute path='/' exact={true} > */}
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         <Route path='/feed' exact={true}>
           <FeedPage />
         </Route>

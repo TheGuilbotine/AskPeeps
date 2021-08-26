@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp, login } from '../../store/session';
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -24,10 +25,17 @@ const SignUpForm = () => {
                                   lastName,
                                   birthDate,
                                   email,
-                                  password));
+                                  password
+                                  )
+      );
       if (data) {
+        console.log('------------------------------------');
+        console.log(data);
+        console.log('------------------------------------');
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords do not match"])
     }
   };
 
@@ -66,8 +74,8 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+        {errors.map((error, idx) => (
+          <div key={idx}>{error}</div>
         ))}
       </div>
       <div>
@@ -77,6 +85,7 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
+          required={true}
         ></input>
       </div>
       <div>
@@ -86,6 +95,7 @@ const SignUpForm = () => {
           name='firstName'
           onChange={updateFirstName}
           value={firstName}
+          required={true}
         ></input>
       </div>
       <div>
@@ -95,6 +105,7 @@ const SignUpForm = () => {
           name='lastName'
           onChange={updateLastName}
           value={lastName}
+          required={true}
         ></input>
       </div>
       <div>
@@ -103,6 +114,7 @@ const SignUpForm = () => {
         name='birthDate'
         onChange={updateBirthDate}
         value={birthDate}
+        required={true}
         ></input>
       </div>
       <div>
@@ -112,6 +124,7 @@ const SignUpForm = () => {
           name='email'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -121,6 +134,7 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>

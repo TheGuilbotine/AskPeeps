@@ -82,7 +82,7 @@ export const signUp = (username, firstName, lastName, birthDate, email, password
       l_name: lastName,
       birth_date: birthDate,
       email,
-      password,
+      password
     }),
   });
 

@@ -6,8 +6,8 @@ import { editQuestion, getQuestions } from '../../store/question';
 import "./EditQuestion.css"
 
 
-export default function EditQuestion({questionId}) {
-    const questionToEdit = useSelector((state) => state.questions[questionId]);
+export default function EditQuestion({responseId, questionId}) {
+    const questionToEdit = useSelector((state) => state?.questions[questionId]);
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
