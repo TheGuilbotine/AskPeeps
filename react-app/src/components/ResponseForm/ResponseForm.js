@@ -26,9 +26,6 @@ export default function ResponseForm({questionId}) {
                 response
             ),
         );
-        // console.log('------------------------------------');
-        // console.log(data);
-        // console.log('------------------------------------');
         if (data.errors) {
             setErrors(data.errors)
         } else {

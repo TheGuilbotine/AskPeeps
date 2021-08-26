@@ -38,8 +38,8 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
         <input
+          placeholder='User Name'
           name='email'
           type='text'
           placeholder='Email'
@@ -48,8 +48,8 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
         <input
+          placeholder='Password'
           name='password'
           type='password'
           placeholder='Password'

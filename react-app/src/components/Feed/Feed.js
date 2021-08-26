@@ -30,7 +30,7 @@ export default function FeedPage() {
         <div>
             {/* <QuestionSideBar /> */}
             <QuestionForm />
-            <h1>Hello {sessionUser.username} welcome to the Questions Feed</h1>
+            <h1>Hello {sessionUser?.username} welcome to the Questions Feed</h1>
             {questions && questions?.map((question, idx) => (
                 <div key={idx}>
                     {question?.username}: {question.question}
@@ -43,7 +43,7 @@ export default function FeedPage() {
                             <EditResponse responseId={response.id} questionId={question.id} />
                         </div>
                     ))}
-                    <ResponseForm questionId={question?.id} />
+                    {sessionUser && <ResponseForm questionId={question?.id} />}
                     {/* <QuestionResponses questionId={question?.id} /> */}
                     {/* <DeleteQuestionModal questionId={question?.id} /> */}
                 </div>
