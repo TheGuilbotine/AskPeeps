@@ -35,3 +35,14 @@
     justify-content: space-around;
     margin-top: 20px;
 }
+
+.login-button {
+    border: 2px solid rgb(181, 201, 243);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(181, 201, 243);
+}
+
+.login-button:hover {
+     cursor: pointer;
+ }

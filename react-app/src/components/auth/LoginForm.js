@@ -46,7 +46,7 @@ const LoginForm = () => {
           </div>
           <div className='form-input__container'>
             <input
-            className='form-input'
+              className='form-input'
               placeholder='User Name'
               name='email'
               type='text'
@@ -57,7 +57,7 @@ const LoginForm = () => {
           </div>
           <div className='form-input__container'>
             <input
-            className='form-input'
+              className='form-input'
               placeholder='Password'
               name='password'
               type='password'
@@ -66,8 +66,8 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <div className='login-buttons__container'>
-              <button type='submit'>Login</button>
-              <button type='submit' onClick={demoLogin}>Demo</button>
+              <button className="login-button" type='submit'>Login</button>
+              <button className="login-button" type='submit' onClick={demoLogin}>Demo</button>
             </div>
           </div>
         </form>
