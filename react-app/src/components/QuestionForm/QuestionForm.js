@@ -14,9 +14,9 @@ export default function QuestionForm() {
     const dispatch = useDispatch();
     // const history = useHistory();
 
-    useEffect(() => {
-		dispatch(getQuestions());
-	}, [dispatch]);
+    // useEffect(() => {
+	// 	dispatch(getQuestions());
+	// }, [dispatch]);
 
     const onCreate = async (e) => {
         e.preventDefault();

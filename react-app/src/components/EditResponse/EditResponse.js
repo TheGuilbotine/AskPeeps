@@ -16,9 +16,9 @@ export default function EditResponse({responseId, questionId}) {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getQuestions());
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getQuestions());
+    // }, [dispatch])
 
     const onEdit = async (e) => {
         e.preventDefault();

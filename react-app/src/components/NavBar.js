@@ -1,19 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 
 const NavBar = () => {
     const sessionUser = useSelector((state) => state.session.user)
-
+    const location = useLocation();
     return (
     <div className="navbar__container">
         <nav className="navbar-links__container">
             <div className="navbar-link__container">
-                <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>
+                {location.pathname != '/' && <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>
                     Home
-                </NavLink>
+                </NavLink>}
             </div>
             <div className="navbar-link__container">
                 {sessionUser && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
