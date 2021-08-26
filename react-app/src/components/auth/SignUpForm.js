@@ -24,8 +24,7 @@ const SignUpForm = () => {
                                   lastName,
                                   birthDate,
                                   email,
-                                  password,
-                                  repeatPassword
+                                  password
                                   )
       );
       if (data) {
@@ -34,6 +33,8 @@ const SignUpForm = () => {
         console.log('------------------------------------');
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords do not match"])
     }
   };
 
@@ -72,8 +73,8 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+        {errors.map((error, idx) => (
+          <div key={idx}>{error}</div>
         ))}
       </div>
       <div>
