@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import FeedPage from './components/Feed/Feed';
+import HomePage from './components/HomePage/HomePage';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,12 +39,13 @@ function App() {
         </Route>
         {/* <ProtectedRoute path='/' exact={true} > */}
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </Route>
         <Route path='/feed' exact={true}>
           <FeedPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

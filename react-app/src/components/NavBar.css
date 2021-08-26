@@ -1,10 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
 .navbar__container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(154, 154, 253);
+    height: 60px;
 }
 
 .navbar-links__container {
     display: flex;
+    margin-right: 30px;
 }
 
 .navbar-link__container {
@@ -13,4 +19,5 @@
 
 .navbar-link {
     text-decoration: none;
+    font-family: "Baloo 2" sans-serif;
 }

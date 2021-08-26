@@ -1,0 +1,5 @@
+body {
+    width: 100%;
+    background-size: cover;
+    background-image: url('../../splash-image.jpg');
+}
