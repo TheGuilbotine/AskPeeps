@@ -6,6 +6,9 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,7 +18,13 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(
+                                  username,
+                                  firstName,
+                                  lastName,
+                                  birthDate,
+                                  email,
+                                  password));
       if (data) {
         setErrors(data)
       }
@@ -24,6 +33,18 @@ const SignUpForm = () => {
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateBirthDate = (e) => {
+    setBirthDate(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -50,8 +71,8 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
         <input
+        placeholder='User Name'
           type='text'
           name='username'
           onChange={updateUsername}
@@ -59,8 +80,34 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
         <input
+        placeholder='First Name'
+          type='text'
+          name='firstName'
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeholder='Last Name'
+          type='text'
+          name='lastName'
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <input
+        type='date'
+        name='birthDate'
+        onChange={updateBirthDate}
+        value={birthDate}
+        ></input>
+      </div>
+      <div>
+        <input
+          placeholder='Email'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -68,8 +115,8 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
         <input
+          placeholder='Password'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -77,8 +124,8 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
         <input
+          placeholder='Confirm Password'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}

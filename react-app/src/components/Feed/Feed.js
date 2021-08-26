@@ -17,7 +17,7 @@ import './Feed.css'
 
 export default function FeedPage() {
     const dispatch = useDispatch();
-    const questions = Object.values(useSelector((state) => state.questions));
+    const questions = Object.values(useSelector((state) => state.questions)).reverse();
     const sessionUser = useSelector((state) => state.session.user)
 
 

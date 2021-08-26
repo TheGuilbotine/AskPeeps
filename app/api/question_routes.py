@@ -27,7 +27,7 @@ def questions():
     """
     Gets all questions with username in object
     """
-    questions_query = Question.query.all()
+    questions_query = Question.query.order_by(Question.id.desc()).all()
     questions = [question.to_dict() for question in questions_query]
     for question in questions:
         question["username"] = User.query.get(
