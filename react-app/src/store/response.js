@@ -79,23 +79,6 @@ export const destroyResponse = (responseId) => async dispatch => {
 };
 
 
-const initialState = [];
-
-// const sortList = (questions) => {
-
-//     questions.sort((a, b) => {
-//       if (a.question_name > b.question_name) {
-//         return 1;
-//       }
-//       if (a.question_nam < b.question_nam) {
-//         return -1;
-//       }
-//       return 0;
-//     });
-
-//     return questions.map(question => question.id);
-// };
-
 const responsesReducer = (state = {}, action) => {
     if (!action) return state;
     switch (action.type) {
