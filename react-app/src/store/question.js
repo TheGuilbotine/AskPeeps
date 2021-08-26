@@ -96,15 +96,15 @@ const sortList = (questions) => {
 
     questions.sort((a, b) => {
       if (a.id > b.id) {
-        return 1;
+        return -1;
       }
       if (a.id < b.id) {
-        return -1;
+        return 1;
       }
       return 0;
     });
 
-    return questions.map(question => question.id);
+    return questions.map(question => question.question);
 };
 
 
@@ -123,7 +123,12 @@ const questionsReducer = (state = {}, action) => {
                 ...state,
                 [action.question.id]: action.question
             };
-            return newState;
+            // return newState;
+            return {
+                ...newState,
+                ...state,
+                questions: sortList(action.questions),
+              };
         }
         case DESTROY_QUESTION: {
             const newState = {...state};
