@@ -128,12 +128,12 @@ table {
   border-spacing: 0;
 }
 
-.errors {
+.errors__container {
   font-family: "Montserrat", sans-serif;
   color: rgb(191, 0, 0);
   margin-bottom: 5px;
 }
 
-.errors-container {
+/* .errors-container {
   text-align: center;
-}
+} */

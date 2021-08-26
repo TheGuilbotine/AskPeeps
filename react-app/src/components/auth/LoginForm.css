@@ -1,0 +1,37 @@
+/* .login-form__page-container {
+    height: 100%;
+} */
+
+.login-form__container {
+   display: flex;
+   height: 100%;
+   justify-content: center;
+   padding-right: 60%;
+   padding-top: 10%;
+}
+
+.login-form {
+    border: 2px solid rgb(181, 201, 243);
+    padding: 40px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(225, 225, 225, 0.8);
+}
+
+.form-input__container {
+    margin: 10px;
+}
+
+.form-input {
+    border: 2px solid rgb(181, 201, 243);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+
+.login-buttons__container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
