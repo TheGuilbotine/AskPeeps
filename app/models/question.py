@@ -26,6 +26,7 @@ class Question(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'question': self.question,
-            'answered': self.answered
+            'answered': self.answered,
+            'responses': [response.to_dict() for response in self.responses]
             # TODO/ Add a responses key? pointing to the list of responses response.response for response in self.responses
         }

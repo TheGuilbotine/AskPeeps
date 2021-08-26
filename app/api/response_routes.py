@@ -42,9 +42,9 @@ def specific_responses(id):
     response_query = Response.query.filter(
         Response.question_id == id).all()
     responses = [response.to_dict() for response in response_query]
-    print('---------------------------------')
-    print(response_query)
-    print('---------------------------------')
+    for response in responses:
+        response["username"] = User.query.get(
+            response["user_id"]).username
     return {"responses": responses}
 
 

@@ -95,10 +95,10 @@ const initialState = [];
 const sortList = (questions) => {
 
     questions.sort((a, b) => {
-      if (a.question_name > b.question_name) {
+      if (a.id > b.id) {
         return 1;
       }
-      if (a.question_nam < b.question_nam) {
+      if (a.id < b.id) {
         return -1;
       }
       return 0;

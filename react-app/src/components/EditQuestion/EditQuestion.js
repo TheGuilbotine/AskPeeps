@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { editQuestion, getQuestions } from '../../store/question';
 
@@ -64,7 +64,7 @@ export default function EditQuestion({questionId}) {
                         value={question}
                         required={true}></input>
 				</div>
-                <div className='form-label__container'>
+                {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
                         className='form-input__checkbox'
@@ -72,7 +72,7 @@ export default function EditQuestion({questionId}) {
                         name='answered'
                         value={answered}
                         onChange={updateAnswered}></input>
-				</div>
+				</div> */}
                 <button className="question-edit__submit-button" type='submit'>Edit your ask?</button>
             </form>
         </div>
