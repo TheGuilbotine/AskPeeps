@@ -29,7 +29,7 @@ export const getQuestionResponses = (questionId) => async dispatch => {
     }
 };
 
-export const editQuestion = (responseId, userId, questionId, response) => async dispatch => {
+export const editResponse = (responseId, userId, questionId, response) => async dispatch => {
     const res = await fetch (`/api/responses/${responseId}`, {
         method: 'PUT',
         headers: {

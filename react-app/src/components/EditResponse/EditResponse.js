@@ -1,53 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getQuestions } from '../../store/question';
+import { editResponse } from '../../store/response';
 
 import './EditResponse.css';
 
 
-export default function EditResponse({responseId}) {
-    const responseToEdit = useSelector((state) => state.questions[questionId]);
+export default function EditResponse({responseId, questionId}) {
+    const responseToEdit = useSelector((state) => state.questions[questionId].responses[responseId]);
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
-    const [question, setQuestion] = useState(questionToEdit?.question);
-    const [answered, setAnswered] = useState(questionToEdit?.answered);
+    const [response, setResponse] = useState(''); // responseToEdit?.response
 
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getQuestions());
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getQuestions());
+    }, [dispatch])
 
     const onEdit = async (e) => {
         e.preventDefault();
-        setQuestion("Updating...")
+        setResponse("Updating...")
         const data = await dispatch(
-            editQuestion(
+            editResponse(
+                responseId,
                 questionId,
                 userId,
-                question,
-                answered
+                response
             ),
         );
         if (data.errors) {
             setErrors(data.errors);
         } else {
             dispatch(getQuestions())
-            setQuestion(data.question)
+            setResponse('')
         }
     };
-    const updateQuestion = (e) => {
-        setQuestion(e.target.value);
-    };
-    const updateAnswered = (e) => {
-        setAnswered(e.target.value);
+    const updateResponse = (e) => {
+        setResponse(e.target.value);
     };
 
     return (
         <div>
-            <form onSubmit={onEdit} className='edit-question__form'>
+            <form onSubmit={onEdit} className='edit-response__form'>
                 <div>
                     {errors?.map((error, idx) => (
                         <div key={idx}>{error}</div>
@@ -56,14 +53,14 @@ export default function EditResponse({responseId}) {
                 <div className='form-label__container'>
                     <input
                         className='form-input'
-                        placeholder='What is your Question?'
+                        placeholder='Want to change your tell?'
                         type='text'
-                        name='question'
-                        onChange={updateQuestion}
-                        value={question}
+                        name='response'
+                        onChange={updateResponse}
+                        value={response}
                         required={true}></input>
 				</div>
-                <button className="question-edit__submit-button" type='submit'>Edit your ask?</button>
+                <button className="question-edit__submit-button" type='submit'>Edit your tell?</button>
             </form>
         </div>
     )

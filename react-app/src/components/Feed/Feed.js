@@ -6,6 +6,7 @@ import { getQuestions } from '../../store/question';
 import QuestionForm from '../QuestionForm/QuestionForm';
 import EditQuestion from '../EditQuestion/EditQuestion';
 import ResponseForm from '../ResponseForm/ResponseForm';
+import EditResponse from '../EditResponse/EditResponse';
 // import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
@@ -18,9 +19,10 @@ export default function FeedPage() {
     const dispatch = useDispatch();
     const questions = Object.values(useSelector((state) => state.questions));
     const sessionUser = useSelector((state) => state.session.user)
+
+
     useEffect(() => {
         dispatch(getQuestions())
-        // TODO: Add getUsers so that the question populates with username without refresh
     }, [dispatch])
 
 
@@ -38,6 +40,7 @@ export default function FeedPage() {
                         <div>
                             {response?.username} said, {response.response}
                             <button className="delete-confirmation-button" onClick={() => dispatch(destroyResponse(response.id))}>Delete</button>
+                            <EditResponse responseId={response.id} questionId={question.id} />
                         </div>
                     ))}
                     <ResponseForm questionId={question?.id} />
