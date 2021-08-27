@@ -7,6 +7,7 @@ import EditQuestion from '../EditQuestion/EditQuestion';
 import ResponseForm from '../ResponseForm/ResponseForm';
 import EditResponse from '../EditResponse/EditResponse';
 import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
+import ResponseDiv from '../ResponsesDiv/ResponseDiv';
 // import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
@@ -56,23 +57,7 @@ export default function FeedPage() {
                         {question?.username}: {question.question}
                         {sessionUser.id == question.user_id && <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>}
                         {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
-                        <div className="response__drop-down__container">
-                            <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Responses</span>
-                            {showResponsesDiv && (
-                                <div className="response__drop-down">
-                                    {question.responses && question.responses?.map((response, idx) => (
-                                        <div className="response__container">
-                                            {response?.username} said, {response.response}
-                                            {sessionUser.id == response.user_id &&  <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>}
-                                            {sessionUser.id == response.user_id &&  <EditResponse responseId={response?.id} questionId={question?.id} />}
-                                        </div>
-                                    ))}
-                                    {sessionUser && <ResponseForm questionId={question?.id} />}
-                                </div>
-                            )}
-                        </div>
-                        {/* <QuestionResponses questionId={question?.id} /> */}
-                        {/* <DeleteQuestionModal questionId={question?.id} /> */}
+                        <ResponseDiv setShowResponsesDiv={setShowResponsesDiv} showResponsesDiv={showResponsesDiv} question={question} sessionUser={sessionUser} onDelete={onDelete} EditResponse={EditResponse} ResponseForm={ResponseForm}/>
                     </div>
                 ))}
             </div>
