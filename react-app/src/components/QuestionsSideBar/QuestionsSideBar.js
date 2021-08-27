@@ -17,7 +17,7 @@ export default function QuestionSideBar() {
 
     return (
         <div>
-            <h2>SIDEBAR</h2>
+            <h2>Questions</h2>
         </div>
     )
 }

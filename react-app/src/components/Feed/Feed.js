@@ -21,6 +21,7 @@ export default function FeedPage() {
     const sessionUser = useSelector((state) => state.session.user)
 
 
+
     useEffect(() => {
         dispatch(getQuestions())
     }, [dispatch, EditQuestion])
@@ -52,7 +53,6 @@ export default function FeedPage() {
                     </div>
                 ))}
             </div>
-
         </div>
     )
 
