@@ -27,6 +27,16 @@ export const getQuestions = () => async dispatch => {
     }
 };
 
+export const getOneQuestion = (questionId) => async dispatch => {
+    const res = await fetch(`/api/questions/${questionId}/`)
+
+    if (res.ok) {
+        const questions = await res.json();
+        dispatch(addQuestion(questions.question));
+        return res;
+    }
+};
+
 // TODO: Get all questions of one user
 export const getUserQuestions = (id) => async dispatch => {
     const res = await fetch(`/api/users/${id}/`)
