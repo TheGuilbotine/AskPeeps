@@ -16,6 +16,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      alert(`You have successfully logged in.`)
     }
   };
 
