@@ -63,8 +63,8 @@ export default function FeedPage() {
                                     {question.responses && question.responses?.map((response, idx) => (
                                         <div className="response__container">
                                             {response?.username} said, {response.response}
-                                            <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>
-                                            <EditResponse responseId={response?.id} questionId={question?.id} />
+                                            {sessionUser.id == response.user_id &&  <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>}
+                                            {sessionUser.id == response.user_id &&  <EditResponse responseId={response?.id} questionId={question?.id} />}
                                         </div>
                                     ))}
                                     {sessionUser && <ResponseForm questionId={question?.id} />}
