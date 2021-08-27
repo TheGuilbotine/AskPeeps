@@ -39,7 +39,7 @@ export const getOneQuestion = (questionId) => async dispatch => {
 
 // TODO: Get all questions of one user
 export const getUserQuestions = (id) => async dispatch => {
-    const res = await fetch(`/api/users/${id}/`)
+    const res = await fetch(`/api/users/${id}`)
 
     if (res.ok) {
         const questions = await res.json();
@@ -100,22 +100,22 @@ export const destroyQuestion = (questionId) => async dispatch => {
 
 
 
-const initialState = [];
+// const initialState = [];
 
-const sortList = (questions) => {
+// const sortList = (questions) => {
 
-    questions.sort((a, b) => {
-      if (a.id > b.id) {
-        return -1;
-      }
-      if (a.id < b.id) {
-        return 1;
-      }
-      return 0;
-    });
+//     questions.sort((a, b) => {
+//       if (a.id > b.id) {
+//         return -1;
+//       }
+//       if (a.id < b.id) {
+//         return 1;
+//       }
+//       return 0;
+//     });
 
-    return questions.map(question => question.question);
-};
+//     return questions.map(question => question.question);
+// };
 
 
 const questionsReducer = (state = {}, action) => {

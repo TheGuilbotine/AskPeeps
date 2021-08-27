@@ -1,4 +1,3 @@
-import { LOAD_QUESTIONS } from "./question";
 import { getOneQuestion } from "./question";
 
 export const LOAD_RESPONSES = 'responses/LOAD_RESPONSES';
