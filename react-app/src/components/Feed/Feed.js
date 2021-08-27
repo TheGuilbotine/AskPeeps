@@ -19,7 +19,7 @@ export default function FeedPage() {
     const dispatch = useDispatch();
     const questions = Object.values(useSelector((state) => state.questions)).reverse();
     const sessionUser = useSelector((state) => state.session.user)
-
+    const [optionsOn, setOptionsOn] = useState(false);
 
 
     useEffect(() => {
@@ -37,7 +37,17 @@ export default function FeedPage() {
             {/* <QuestionSideBar /> */}
             <div className="feed-title__container">
                 <h1>Hello {sessionUser?.username} welcome to the Questions Feed</h1>
-                <QuestionForm />
+
+            </div>
+            <div>
+                <button className='nav_sidebar_icons' onClick={()=> setOptionsOn(!optionsOn)}>
+                    {/* <i className="fas fa-question" /> */}
+                    Question?
+                </button>
+                {/* <button className='nav_sidebar_icons' onClick={()=> setOptionsOn(!optionsOn)}>
+                    <i className="fas fa-question" />
+                    Responses
+                </button> */}
             </div>
             <div className="questions-feed__container">
                 {questions && questions?.map((question, idx) => (
@@ -57,6 +67,14 @@ export default function FeedPage() {
                         {/* <DeleteQuestionModal questionId={question?.id} /> */}
                     </div>
                 ))}
+            </div>
+            <div className="sidebar" style={!optionsOn ? {transform: 'translateX(100%)'} : {}}>
+                <div className='sidebar_container'>
+                    <div className="arrow-button" onClick={() => setOptionsOn(!optionsOn)}>
+                        <i className="fas fa-arrow-right"></i>
+                    </div>
+                    <QuestionForm />
+                </div>
             </div>
         </div>
     )
