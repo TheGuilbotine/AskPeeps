@@ -8,20 +8,6 @@ export default function Footer() {
                     <div className="footer-info">
                         <div className="footer-columns__container">
                             <div className="column__container">
-                                <div className="column__title">Future of AskPeeps</div>
-                                <ul>
-                                    <li>Search Questions</li>
-                                    <li className="asterisk">*</li>
-                                    <li>Flag inappropriate or inaccurate content</li>
-                                    <li className="asterisk">*</li>
-                                    <li>Yes vote or No vote content</li>
-                                    <li className="asterisk">*</li>
-                                    <li>Tag questions</li>
-                                    <li className="asterisk">*</li>
-                                    <li>Chat</li>
-                                </ul>
-                            </div>
-                            <div className="column__container">
                                 <div className="column__title">AskPeeps</div>
                                 <ul>
                                     <li className="footer-link__container">
