@@ -43,7 +43,7 @@ export default function FeedPage() {
             <div>
                 <button className='question__sidebar-button' onClick={()=> setOptionsOn(!optionsOn)}>
                     {/* <i className="fas fa-question" /> */}
-                    Question?
+                    AskPeeps a Question?
                 </button>
                 {/* <button className='nav_sidebar_icons' onClick={()=> setOptionsOn(!optionsOn)}>
                     <i className="fas fa-question" />

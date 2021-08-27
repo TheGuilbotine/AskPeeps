@@ -37,5 +37,5 @@ class User(db.Model, UserMixin):
             'f_name': self.f_name,
             'l_name': self.l_name,
             'birth_date': self.birth_date,
-            'user-questions': [question.to_dict() for question in self.questions]
+            'user_questions': [question.to_dict() for question in self.questions]
         }
