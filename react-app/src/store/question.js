@@ -28,7 +28,7 @@ export const getQuestions = () => async dispatch => {
 };
 
 export const getOneQuestion = (questionId) => async dispatch => {
-    const res = await fetch(`/api/questions/${questionId}/`)
+    const res = await fetch(`/api/questions/${questionId}`)
 
     if (res.ok) {
         const questions = await res.json();
