@@ -20,6 +20,7 @@ export default function FeedPage() {
     const questions = Object.values(useSelector((state) => state.questions)).reverse();
     const sessionUser = useSelector((state) => state.session.user)
     const [optionsOn, setOptionsOn] = useState(false);
+    const [showResponsesDiv, setShowResponsesDiv] = useState(false);
 
 
     useEffect(() => {
@@ -51,18 +52,25 @@ export default function FeedPage() {
             </div>
             <div className="questions-feed__container">
                 {questions && questions?.map((question, idx) => (
-                    <div key={idx}>
+                    <div className="question__container" key={idx}>
                         {question?.username}: {question.question}
                         <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>
                         <EditQuestion questionId={question?.id} />
-                        {question.responses && question.responses?.map((response, idx) => (
-                            <div>
-                                {response?.username} said, {response.response}
-                                <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>
-                                <EditResponse responseId={response?.id} questionId={question?.id} />
-                            </div>
-                        ))}
-                        {sessionUser && <ResponseForm questionId={question?.id} />}
+                        <div className="response__drop-down__container" onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>
+                            <span className="response__drop-down__button">Responses</span>
+                            {showResponsesDiv && (
+                                <div className="response__drop-down">
+                                    {question.responses && question.responses?.map((response, idx) => (
+                                        <div className="response__container">
+                                            {response?.username} said, {response.response}
+                                            <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>
+                                            <EditResponse responseId={response?.id} questionId={question?.id} />
+                                        </div>
+                                    ))}
+                                    {sessionUser && <ResponseForm questionId={question?.id} />}
+                                </div>
+                            )}
+                        </div>
                         {/* <QuestionResponses questionId={question?.id} /> */}
                         {/* <DeleteQuestionModal questionId={question?.id} /> */}
                     </div>
