@@ -54,8 +54,8 @@ export default function FeedPage() {
                 {questions && questions?.map((question, idx) => (
                     <div className="question__container" key={idx}>
                         {question?.username}: {question.question}
-                        <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>
-                        <EditQuestion questionId={question?.id} />
+                        {sessionUser.id == question.user_id && <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>}
+                        {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
                         <div className="response__drop-down__container" onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>
                             <span className="response__drop-down__button">Responses</span>
                             {showResponsesDiv && (
