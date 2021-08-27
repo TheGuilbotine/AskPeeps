@@ -21,10 +21,17 @@ export default function FeedPage() {
     const sessionUser = useSelector((state) => state.session.user)
 
 
+
     useEffect(() => {
         dispatch(getQuestions())
     }, [dispatch, EditQuestion])
 
+
+    const onDelete = (e, responseId, questionId) => {
+        e.preventDefault();
+        dispatch(destroyResponse(responseId, questionId))
+        // dispatch(getQuestions())
+    };
 
     return (
         <div>
@@ -42,7 +49,7 @@ export default function FeedPage() {
                         {question.responses && question.responses?.map((response, idx) => (
                             <div>
                                 {response?.username} said, {response.response}
-                                <button className="delete-confirmation-button" onClick={() => dispatch(destroyResponse(response.id))}>Delete</button>
+                                <button className="delete-confirmation-button" onClick={(e) => onDelete(e, response.id, question.id)}>Delete</button>
                                 <EditResponse responseId={response?.id} questionId={question?.id} />
                             </div>
                         ))}
@@ -52,7 +59,6 @@ export default function FeedPage() {
                     </div>
                 ))}
             </div>
-
         </div>
     )
 

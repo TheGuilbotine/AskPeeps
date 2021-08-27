@@ -1,4 +1,5 @@
 import { LOAD_QUESTIONS } from "./question";
+import { getOneQuestion } from "./question";
 
 export const LOAD_RESPONSES = 'responses/LOAD_RESPONSES';
 export const CREATE_RESPONSE = 'responses/CREATE_RESPONSE';
@@ -68,12 +69,13 @@ export const createResponse = (userId, questionId, response) => async dispatch =
     }
 };
 
-export const destroyResponse = (responseId) => async dispatch => {
+export const destroyResponse = (responseId, questionId) => async dispatch => {
     const deleted = await fetch(`/api/responses/${responseId}`, {
         method: 'DELETE'
     });
     if (deleted) {
         dispatch(removeResponse(responseId))
+        dispatch(getOneQuestion(questionId))
         return deleted;
     }
 };
