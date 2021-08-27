@@ -23,6 +23,7 @@ const LoginForm = () => {
 
   const demoLogin = async () => {
     await dispatch(login('demo@aa.io', 'password'))
+    alert(`Welcome back to AskPeeps.`)
   }
 
   const updateEmail = (e) => {
