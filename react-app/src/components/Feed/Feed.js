@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { getQuestions } from '../../store/question';
-// import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar';
-import QuestionForm from '../QuestionForm/QuestionForm';
+import { getQuestions, getUserQuestions } from '../../store/question';
+// import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
 import EditQuestion from '../EditQuestion/EditQuestion';
 import ResponseForm from '../ResponseForm/ResponseForm';
 import EditResponse from '../EditResponse/EditResponse';
+import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
 // import QuestionResponses from '../QuestionResponses';
 // import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
@@ -41,7 +41,7 @@ export default function FeedPage() {
 
             </div>
             <div>
-                <button className='nav_sidebar_icons' onClick={()=> setOptionsOn(!optionsOn)}>
+                <button className='question__sidebar-button' onClick={()=> setOptionsOn(!optionsOn)}>
                     {/* <i className="fas fa-question" /> */}
                     Question?
                 </button>
@@ -56,8 +56,8 @@ export default function FeedPage() {
                         {question?.username}: {question.question}
                         {sessionUser.id == question.user_id && <button className="delete-confirmation-button" onClick={() => dispatch(destroyQuestion(question.id))}>Delete</button>}
                         {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
-                        <div className="response__drop-down__container" onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>
-                            <span className="response__drop-down__button">Responses</span>
+                        <div className="response__drop-down__container">
+                            <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Responses</span>
                             {showResponsesDiv && (
                                 <div className="response__drop-down">
                                     {question.responses && question.responses?.map((response, idx) => (
@@ -76,14 +76,7 @@ export default function FeedPage() {
                     </div>
                 ))}
             </div>
-            <div className="sidebar" style={!optionsOn ? {transform: 'translateX(100%)'} : {}}>
-                <div className='sidebar_container'>
-                    <div className="arrow-button" onClick={() => setOptionsOn(!optionsOn)}>
-                        <i className="fas fa-arrow-right"></i>
-                    </div>
-                    <QuestionForm />
-                </div>
-            </div>
+            <QuestionSideBar optionsOn={optionsOn} setOptionsOn={setOptionsOn}/>
         </div>
     )
 

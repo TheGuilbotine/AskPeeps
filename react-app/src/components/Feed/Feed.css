@@ -1,8 +1,17 @@
-/* .feed__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap");
+
+.question__sidebar-button {
+    border: 2px solid rgb(105, 148, 241);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(181, 201, 243);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.question__sidebar-button:hover {
+    cursor: pointer;
+}
 
 .feed-title__container {
     display: flex;
