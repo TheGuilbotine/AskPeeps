@@ -11,6 +11,7 @@
 .navbar-links__container {
     display: flex;
     margin-right: 30px;
+    align-items: center;
 }
 
 .navbar-link__container {

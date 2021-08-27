@@ -1,7 +1,7 @@
 .logout-button {
     border: 2px solid rgb(181, 201, 243);
-    border-radius: 4px;
-    padding: 4px;
+    border-radius: 5px;
+    padding: 2px 4px;
     background-color: rgb(181, 201, 243);
 }
 
