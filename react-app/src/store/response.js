@@ -70,6 +70,9 @@ export const createResponse = (userId, questionId, response) => async dispatch =
 };
 
 export const destroyResponse = (responseId, questionId) => async dispatch => {
+    console.log('---------------THUNK---------------------');
+    console.log(responseId, questionId);
+    console.log('------------------------------------');
     const deleted = await fetch(`/api/responses/${responseId}`, {
         method: 'DELETE'
     });

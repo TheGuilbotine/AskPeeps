@@ -29,6 +29,9 @@ export default function FeedPage() {
 
     const onDelete = (e, responseId, questionId) => {
         e.preventDefault();
+        console.log('------------------------------------');
+        console.log(responseId, questionId);
+        console.log('------------------------------------');
         dispatch(destroyResponse(responseId, questionId))
         // dispatch(getQuestions())
     };
