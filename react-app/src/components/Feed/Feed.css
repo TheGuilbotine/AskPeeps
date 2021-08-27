@@ -21,6 +21,7 @@
 }
 
 .questions-feed__container {
+    box-sizing: border-box;
     padding: 40px;
     border-radius: 4px;
     display: flex;
@@ -33,6 +34,10 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.question-info__container {
+    margin-bottom: 18px;
 }
 
 .sidebar {
