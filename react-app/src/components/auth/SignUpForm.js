@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp, login } from '../../store/session';
 import './SIgnUpForm.css'
 
@@ -15,6 +15,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -29,10 +30,10 @@ const SignUpForm = () => {
                                   )
       );
       if (data) {
-        console.log('------------------------------------');
-        console.log(data);
-        console.log('------------------------------------');
         setErrors(data)
+      } else {
+        alert("You have successfully signed up for AskPeeps.")
+        history.push('/feed')
       }
     } else {
       setErrors(["Passwords do not match"])
