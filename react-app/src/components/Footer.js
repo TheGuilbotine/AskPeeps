@@ -26,7 +26,7 @@ export default function Footer() {
                                 <ul>
                                     <li className="footer-link__container">
                                         <a className='footer__link' href='https://github.com/TheGuilbotine/AskPeeps' target="_blank">
-                                        About TableTalk <i class="fab fa-github-square"></i>
+                                        About AskPeeps <i class="fab fa-github-square"></i>
                                         </a>
                                     </li>
                                     <li className="asterisk">*</li>
