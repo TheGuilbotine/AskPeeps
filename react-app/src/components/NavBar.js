@@ -7,7 +7,6 @@ import './NavBar.css'
 const NavBar = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const location = useLocation();
-    const [optionsOn, setOptionsOn] = useState(false);
 
     return (
     <div className="navbar__container">
@@ -35,19 +34,7 @@ const NavBar = () => {
             {sessionUser && <div className="navbar-link__container">
                 <LogoutButton className="navbar-button"/>
             </div>}
-            <div>
-                <button className='nav_sidebar_icons' onClick={()=> setOptionsOn(!optionsOn)}>
-                    <i className="fas fa-bars" />
-                </button>
-          </div>
         </nav>
-        <div className="sidebar" style={!optionsOn ? {transform: 'translateX(100%)'} : {}}>
-            <div className='sidebar_container'>
-                <div className="arrow-button" onClick={() => setOptionsOn(!optionsOn)}>
-                    <i className="fas fa-arrow-left"></i>
-                </div>
-            </div>
-        </div>
     </div>
     );
 }
