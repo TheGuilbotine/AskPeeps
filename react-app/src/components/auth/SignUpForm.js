@@ -32,7 +32,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       } else {
-        alert("You have successfully signed up for AskPeeps.")
+        alert("Welcome to the AskPeeps community.")
         history.push('/feed')
       }
     } else {

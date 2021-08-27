@@ -17,7 +17,7 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     } else {
-      alert(`You have successfully logged in.`)
+      alert(`Welcome back to AskPeeps.`)
     }
   };
 
