@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { getQuestions } from '../../store/question';
 import { createResponse, getQuestionResponses } from '../../store/response';
 import "./ResponseForm.css"
 
@@ -30,6 +31,7 @@ export default function ResponseForm({questionId}) {
             setErrors(data.errors)
         } else {
             dispatch(getQuestionResponses(questionId))
+            dispatch(getQuestions())
             setResponse('');
         }
     };

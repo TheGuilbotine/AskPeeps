@@ -26,6 +26,16 @@ const LoginForm = () => {
     alert(`Welcome back to AskPeeps.`)
   }
 
+  // const demoLogin = async () => {
+  //   const data = await dispatch(login('demo@aa.io', 'password'));
+  //   if (data) {
+  //     setErrors(data);
+  //   } else {
+  //     alert(`Welcome back to AskPeeps.`)
+  //   }
+  // }
+
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
