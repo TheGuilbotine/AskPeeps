@@ -1,0 +1,14 @@
+.response__submit-button {
+    margin: 10px 0px;
+    border: 2px solid rgb(105, 148, 241);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(181, 201, 243);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.response__submit-button:hover {
+    cursor: pointer;
+    background-color: rgb(105, 148, 241);
+}
