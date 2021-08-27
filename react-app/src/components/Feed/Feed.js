@@ -30,7 +30,7 @@ export default function FeedPage() {
     const onDelete = (e, responseId, questionId) => {
         e.preventDefault();
         dispatch(destroyResponse(responseId, questionId))
-        // dispatch(getQuestions())
+        dispatch(getQuestions())
     };
 
     return (
