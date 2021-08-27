@@ -17,7 +17,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-link__container">
                 {sessionUser && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
-                    Questions Feed
+                    {sessionUser.username}'s Questions Feed
                 </NavLink>}
             </div>
             {!sessionUser && <div className="navbar-link__container">

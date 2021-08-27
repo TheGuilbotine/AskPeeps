@@ -1,5 +1,32 @@
 body {
     width: 100%;
     background-size: cover;
-    background-image: url('../../splash-image.jpg');
+    background-image: url('../../images/splash-image.jpg');
+}
+
+.home-page__container {
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.home-page__info-container {
+    border: 2px solid rgb(181, 201, 243);
+    padding: 40px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(225, 225, 225, 0.8);
+    margin-left: 5%;
+    text-align: center;
+}
+
+.asterisk-home {
+    color: rgba(225, 225, 225, 0.8);
+}
+
+.home-page__text-header {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(47, 94, 197);
 }
