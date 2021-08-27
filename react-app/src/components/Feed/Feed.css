@@ -11,6 +11,7 @@
 
 .question__sidebar-button:hover {
     cursor: pointer;
+    background-color: rgb(105, 148, 241);
 }
 
 .feed-title__container {
@@ -21,6 +22,7 @@
 }
 
 .questions-feed__container {
+    box-sizing: border-box;
     padding: 40px;
     border-radius: 4px;
     display: flex;
@@ -33,6 +35,25 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.question-info__container {
+    margin-bottom: 22px;
+}
+
+.delete--button {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    text-align: center;
+}
+
+.delete--button:hover {
+    cursor: pointer;
+    background-color: rgb(177, 13, 46);
 }
 
 .sidebar {
