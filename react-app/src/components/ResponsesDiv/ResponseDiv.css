@@ -17,3 +17,10 @@
 .response__drop-down {
     margin-bottom: 22px;
 }
+
+.responses-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}

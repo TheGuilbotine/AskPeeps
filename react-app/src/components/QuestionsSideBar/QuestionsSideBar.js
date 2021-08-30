@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import QuestionForm from '../QuestionForm/QuestionForm';
-import { getQuestions } from '../../store/question';
-import { createQuestion, getUserQuestions } from '../../store/question';
+import { createQuestion, getUserQuestions,getQuestions } from '../../store/question';
 import './QuestionsSideBar.css'
 
 
@@ -13,9 +12,9 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
     const sessionUser = useSelector((state) => state.session.user)
     const questions = useSelector((state) => state.session.user?.user_questions)
 
-    // useEffect(() => {
-    //     dispatch(getUserQuestions(userId))
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getQuestions())
+    }, [dispatch])
 
     return (
         <>
@@ -28,11 +27,11 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
                     <div className="user-questions__container">
                         Your Questions:
                         {questions && questions?.map((question) => (
-                            <div>
+                            <div key={question.id}>
                                 {question.question}
                                 <div>
                                     {question.responses && question.responses?.map((response) => (
-                                        <div>
+                                        <div key={response.id}>
                                             - {response.response}
                                         </div>
                                     ))}

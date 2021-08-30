@@ -52,7 +52,7 @@ export default function QuestionForm() {
                         <div key={idx}>{error}</div>
                     ))}
                 </div>
-                <div className='form-label__container'>
+                <div className='form-label__container question-form__container'>
                     <input
                         className='form-input'
                         placeholder='What is your Question?'
@@ -61,7 +61,9 @@ export default function QuestionForm() {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
+                    <button className="question__submit-button" type='submit'>AskPeeps</button>
 				</div>
+                <button className="question__cancel-button" onClick={(() => setQuestion(''))}>cancel</button>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
@@ -71,7 +73,6 @@ export default function QuestionForm() {
                         value={answered}
                         onChange={updateAnswered}></input>
 				</div> */}
-                <button className="question__submit-button" type='submit'>Ask peeps?</button>
             </form>
         </div>
     )

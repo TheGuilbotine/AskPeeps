@@ -22,3 +22,13 @@
     text-decoration: none;
     font-family: "Baloo 2" sans-serif;
 }
+
+.navbar-link:hover {
+    text-decoration: underline;
+    color: #2c0550
+}
+
+.navbar-button {
+    border: 2px solid rgb(105, 148, 241);
+    border-radius: 4px;
+}

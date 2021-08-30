@@ -19,6 +19,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: Opx 0px 0px 0px;
+    margin-bottom: 20px;
+    background-color: rgb(154, 154, 253);
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
 }
 
 .questions-feed__container {
@@ -49,11 +56,12 @@
 
 .delete--button {
     border: none;
-    background-color: red;
+    border: 2px solid rgb(177, 13, 46);
+    background-color: rgb(235, 74, 74);
     color: white;
-    border-radius: 50%;
+    border-radius: 4px;
     font-size: 12px;
-    padding: 4px 6px;
+    /* padding: 4px 6px; */
     font-weight: 800;
     text-align: center;
     text-align: center;
