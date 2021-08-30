@@ -9,7 +9,7 @@ import EditResponse from '../EditResponse/EditResponse';
 import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
 import ResponseDiv from '../ResponsesDiv/ResponseDiv';
 // import QuestionResponses from '../QuestionResponses';
-// import DeleteQuestionModal from '../DeleteQuestion';
+import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
 import { destroyResponse } from '../../store/response';
 
@@ -56,7 +56,8 @@ export default function FeedPage() {
                     <div className="question__container" key={idx}>
                         <div className="question-info__container">
                             {question?.username} asked: {question.question}
-                            {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>}
+                            {/* {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>} */}
+                            {sessionUser.id == question.user_id && <DeleteQuestionModal questionId={question?.id} />}
                             {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
                         </div>
                         <ResponseDiv setShowResponsesDiv={setShowResponsesDiv} showResponsesDiv={showResponsesDiv} question={question} sessionUser={sessionUser} onDelete={onDelete} EditResponse={EditResponse} ResponseForm={ResponseForm}/>

@@ -8,7 +8,7 @@ function DeleteQuestionModal({questionId}) {
 
 	return (
         <>
-            <button id='delete-question-button' onClick={() => setShowModal(true)}>Delete</button>
+            <button id='delete-question-button' onClick={() => setShowModal(true)}><i className="far fa-trash-alt" /></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeleteQuestion questionId={questionId} setShowModal={setShowModal} />
