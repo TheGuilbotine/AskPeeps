@@ -7,8 +7,11 @@ import './EditResponse.css';
 
 
 export default function EditResponse({responseId, questionId}) {
-    const responseToEdit = useSelector((state) => state.questions[questionId].responses[responseId]);
+    // const responses = useSelector((state) => state?.questions[questionId].responses);
     const userId = useSelector((state) => state.session.user?.id);
+    // console.log('------------------------------------');
+    // console.log(responses);
+    // console.log('------------------------------------');
 
     const [errors, setErrors] = useState([]);
     const [response, setResponse] = useState(''); // responseToEdit?.response

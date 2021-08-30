@@ -1,0 +1,14 @@
+.fa-arrow-right {
+    margin-bottom: 10px;
+    margin-left: 2px;
+    font-size: 20px;
+    padding: 4px;
+    background-color: rgb(181, 201, 243);
+    border: 2px solid rgb(105, 148, 241);
+    border-radius: 4px;
+}
+
+.fa-arrow-right:hover {
+    cursor: pointer;
+    background-color: rgb(105, 148, 241);
+}
