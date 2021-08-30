@@ -9,9 +9,9 @@ import './EditResponse.css';
 export default function EditResponse({responseId, questionId}) {
     const responseToEdit = useSelector((state) => state?.questions[questionId]?.responses[responseId]?.response);
     const userId = useSelector((state) => state.session.user?.id);
-    console.log('------------------------------------');
-    console.log(responseToEdit);
-    console.log('------------------------------------');
+    // console.log('------------------------------------');
+    // console.log(responseToEdit);
+    // console.log('------------------------------------');
 
     const [errors, setErrors] = useState([]);
     const [response, setResponse] = useState(responseToEdit); // responseToEdit?.response
@@ -63,7 +63,7 @@ export default function EditResponse({responseId, questionId}) {
                         value={response}
                         required={true}></input>
                 <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>
-                <button className="question__cancel-button" onClick={(() => setResponse(responseToEdit))}>cancel</button>
+                <button className="question__cancel-button" onClick={(() => setResponse(''))}>cancel</button>
 				</div>
             </form>
         </div>
