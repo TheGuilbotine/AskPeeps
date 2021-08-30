@@ -34,6 +34,7 @@ export default function ResponseForm({questionId}) {
             dispatch(getQuestionResponses(questionId))
             dispatch(getQuestions())
             setResponse('');
+            alert("Your response has been added.")
         }
     };
 
