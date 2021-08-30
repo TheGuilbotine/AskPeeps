@@ -17,26 +17,29 @@ export default function EditQuestion({responseId, questionId}) {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getQuestions());
-    // }, [dispatch])
 
-    const onEdit = async (e) => {
-        e.preventDefault();
-        setQuestion("Updating...")
-        const data = await dispatch(
-            editQuestion(
-                questionId,
-                userId,
+    // const onSubmitFunc = (e) => {
+        //     e.preventDefault();
+        //     // dispatch(question)
+        //     setQuestion(e.target.value)
+        // }
+
+        const onEdit = async (e) => {
+            e.preventDefault();
+            setQuestion("Updating...")
+            const data = await dispatch(
+                editQuestion(
+                    questionId,
+                    userId,
                 question,
                 answered
-            ),
+                ),
         );
         if (data.errors) {
             setErrors(data.errors);
         } else {
             dispatch(getQuestions())
-            setQuestion('')
+            setQuestion(data.question)
         }
     };
     const updateQuestion = (e) => {
@@ -45,6 +48,10 @@ export default function EditQuestion({responseId, questionId}) {
     const updateAnswered = (e) => {
         setAnswered(e.target.value);
     };
+
+    // useEffect(() => {
+    //     dispatch(getQuestions());
+    // }, [dispatch, onEdit])
 
     return (
         <div>
@@ -63,7 +70,7 @@ export default function EditQuestion({responseId, questionId}) {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
-                <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit"/></button>
+                    <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit"/></button>
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
