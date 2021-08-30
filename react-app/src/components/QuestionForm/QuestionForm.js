@@ -60,7 +60,8 @@ export default function QuestionForm() {
                         name='question'
                         onChange={updateQuestion}
                         value={question}
-                        required={true}></input>
+                        required={true}
+                    ></input>
                     <button className="question__submit-button" type='submit'>AskPeeps</button>
 				</div>
                 <button className="question__cancel-button" onClick={(() => setQuestion(''))}>cancel</button>
