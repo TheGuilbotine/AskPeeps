@@ -8,6 +8,7 @@ export default function ResponseDiv({question, sessionUser, showResponsesDiv, se
             {/* <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Responses</span> */}
             {showResponsesDiv && (
                 <div className="response__drop-down">
+                    {sessionUser && <ResponseForm questionId={question?.id} />}
                     {question.responses && question.responses?.map((response, idx) => (
                         <div key={idx} className="response__container">
                             {response?.username} said, {response.response}
@@ -15,7 +16,6 @@ export default function ResponseDiv({question, sessionUser, showResponsesDiv, se
                             {sessionUser.id == response.user_id &&  <EditResponse responseId={response?.id} questionId={question?.id} />}
                         </div>
                     ))}
-                    {sessionUser && <ResponseForm questionId={question?.id} />}
                 </div>
             )}
         </div>
