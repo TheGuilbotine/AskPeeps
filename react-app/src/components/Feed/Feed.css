@@ -29,9 +29,15 @@
     flex-direction: column;
     align-items: center;
     background-color: rgba(225, 225, 225, 0.685);
-    height: 40vh;
+    height: 55vh;
     overflow-y: scroll;
 }
+
+/* @media screen and (max-width: 420px) {
+    .questions-feed__container {
+        height: 60vh;
+    }
+} */
 
 ::-webkit-scrollbar {
     display: none;
@@ -42,13 +48,16 @@
 }
 
 .delete--button {
+    border: none;
     background-color: red;
     color: white;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 12px;
+    padding: 4px 6px;
     font-weight: 800;
     text-align: center;
     text-align: center;
+    margin-left: 5px;
 }
 
 .delete--button:hover {

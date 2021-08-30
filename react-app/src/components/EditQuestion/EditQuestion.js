@@ -57,12 +57,13 @@ export default function EditQuestion({responseId, questionId}) {
                 <div className='form-label__container'>
                     <input
                         className='form-input'
-                        placeholder='Edit or Change your question?'
+                        placeholder='Edit your question?'
                         type='text'
                         name='question'
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
+                <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit"/></button>
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
@@ -73,7 +74,6 @@ export default function EditQuestion({responseId, questionId}) {
                         value={answered}
                         onChange={updateAnswered}></input>
 				</div> */}
-                <button className="question-edit__submit-button" type='submit'>Edit your ask?</button>
             </form>
         </div>
     )

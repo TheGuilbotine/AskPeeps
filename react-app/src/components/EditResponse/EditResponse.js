@@ -59,8 +59,8 @@ export default function EditResponse({responseId, questionId}) {
                         onChange={updateResponse}
                         value={response}
                         required={true}></input>
+                <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>
 				</div>
-                <button className="question-edit__submit-button" type='submit'>Edit your tell?</button>
             </form>
         </div>
     )

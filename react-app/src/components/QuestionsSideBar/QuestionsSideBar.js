@@ -12,9 +12,6 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
     const { userId } = useParams();
     const sessionUser = useSelector((state) => state.session.user)
     const questions = useSelector((state) => state.session.user?.user_questions)
-    console.log('------------------------------------');
-    console.log(questions[0].responses[0].response);
-    console.log('------------------------------------');
 
     // useEffect(() => {
     //     dispatch(getUserQuestions(userId))
@@ -31,9 +28,16 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
                     <div className="user-questions__container">
                         Your Questions:
                         {questions && questions?.map((question) => (
-                            <>
+                            <div>
                                 {question.question}
-                            </>
+                                <div>
+                                    {question.responses && question.responses?.map((response) => (
+                                        <div>
+                                            - {response.response}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
