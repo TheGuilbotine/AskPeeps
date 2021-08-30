@@ -7,11 +7,16 @@ import './EditResponse.css';
 
 
 export default function EditResponse({responseId, questionId}) {
-    const responseToEdit = useSelector((state) => state?.questions[questionId]?.responses[responseId]?.response);
+    // console.log('------------------------------------');
+    // console.log(responseId);
+    // console.log('------------------------------------');
+    const responsesToFilter = useSelector((state) => state?.questions[questionId]?.responses);
+    const responsesFiltered = responsesToFilter.filter((response) => response.id == responseId)
+    const responseToEdit = responsesFiltered[0].response
     const userId = useSelector((state) => state.session.user?.id);
-    // console.log('------------------------------------');
-    // console.log(responseToEdit);
-    // console.log('------------------------------------');
+    console.log('------------------------------------');
+    console.log(responseToEdit);
+    console.log('------------------------------------');
 
     const [errors, setErrors] = useState([]);
     const [response, setResponse] = useState(responseToEdit); // responseToEdit?.response
