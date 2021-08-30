@@ -12,7 +12,7 @@ const NavBar = () => {
     <div className="navbar__container">
         <nav className="navbar-links__container">
             <div className="navbar-link__container">
-                {location.pathname != '/' && <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>
+                {location.pathname !== '/' && <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>
                     Home
                 </NavLink>}
             </div>
