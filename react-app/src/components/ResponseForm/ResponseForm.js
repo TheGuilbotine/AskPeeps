@@ -34,6 +34,7 @@ export default function ResponseForm({questionId}) {
             dispatch(getQuestionResponses(questionId))
             dispatch(getQuestions())
             setResponse('');
+            alert("Your response has been added.")
         }
     };
 
@@ -61,7 +62,7 @@ return (
                         value={response}
                         required={true}></input>
                     <button className="response__submit-button" type='submit'>Tell peeps?</button>
-                    <button className="response__cancel-button" onClick={(() => setResponse(''))}>cancel</button>
+                    {response && <button className="response__cancel-button" onClick={(() => setResponse(''))}>cancel</button>}
 				</div>
             </form>
     </div>

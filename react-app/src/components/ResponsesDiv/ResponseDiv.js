@@ -4,11 +4,11 @@ import './ResponseDiv.css'
 
 
 export default function ResponseDiv({question, sessionUser, showResponsesDiv, setShowResponsesDiv, onDelete, EditResponse, ResponseForm}) {
-
+    const questionId = question.id
 
     return (
         <div className="response__drop-down__container">
-            {/* <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Responses</span> */}
+            {/* <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((false))}>Responses</span> */}
             {showResponsesDiv && (
                 <div className="response__drop-down">
                     {sessionUser && <ResponseForm questionId={question?.id} />}

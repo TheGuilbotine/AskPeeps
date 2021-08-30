@@ -32,6 +32,7 @@ export default function QuestionForm() {
         } else {
             dispatch(getQuestions())
             setQuestion('');
+            alert("Your question has been asked")
         }
     };
 
@@ -60,10 +61,11 @@ export default function QuestionForm() {
                         name='question'
                         onChange={updateQuestion}
                         value={question}
-                        required={true}></input>
+                        required={true}
+                    ></input>
                     <button className="question__submit-button" type='submit'>AskPeeps</button>
 				</div>
-                <button className="question__cancel-button" onClick={(() => setQuestion(''))}>cancel</button>
+                {question && <button className="question__cancel-button" onClick={(() => setQuestion(''))}>cancel</button>}
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
