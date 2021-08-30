@@ -68,7 +68,7 @@ export default function EditResponse({responseId, questionId}) {
                         value={response}
                         required={true}></input>
                 <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>
-                <button className="question__cancel-button" onClick={(() => setResponse(''))}>cancel</button>
+                <button className="question__cancel-button" onClick={(() => setResponse(responseToEdit))}>cancel</button>
 				</div>
             </form>
         </div>
