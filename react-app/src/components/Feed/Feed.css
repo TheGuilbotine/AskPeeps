@@ -29,9 +29,15 @@
     flex-direction: column;
     align-items: center;
     background-color: rgba(225, 225, 225, 0.685);
-    height: 40vh;
+    height: 55vh;
     overflow-y: scroll;
 }
+
+/* @media screen and (max-width: 420px) {
+    .questions-feed__container {
+        height: 60vh;
+    }
+} */
 
 ::-webkit-scrollbar {
     display: none;
@@ -42,6 +48,7 @@
 }
 
 .delete--button {
+    border: none;
     background-color: red;
     color: white;
     border-radius: 50%;

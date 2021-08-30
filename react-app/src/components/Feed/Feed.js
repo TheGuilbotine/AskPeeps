@@ -60,7 +60,7 @@ export default function FeedPage() {
                             {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
                         </div>
                         <ResponseDiv setShowResponsesDiv={setShowResponsesDiv} showResponsesDiv={showResponsesDiv} question={question} sessionUser={sessionUser} onDelete={onDelete} EditResponse={EditResponse} ResponseForm={ResponseForm}/>
-                        <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Responses</span>
+                        <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((responsesShown) => !responsesShown)}>Respond</span>
                     </div>
                 ))}
             </div>
