@@ -11,7 +11,7 @@ export default function EditQuestion({responseId, questionId}) {
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
-    const [question, setQuestion] = useState('');
+    const [question, setQuestion] = useState(questionToEdit.question);
     const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
@@ -56,7 +56,7 @@ export default function EditQuestion({responseId, questionId}) {
                 </div>
                 <div className='form-label__container'>
                     <input
-                        className='form-input'
+                        className='form-input edit-question__container'
                         placeholder='Edit your question?'
                         type='text'
                         name='question'
