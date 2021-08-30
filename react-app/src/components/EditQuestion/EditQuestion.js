@@ -71,6 +71,7 @@ export default function EditQuestion({responseId, questionId}) {
                         value={question}
                         required={true}></input>
                     <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit"/></button>
+                    <button className="question__cancel-button" onClick={(() => setQuestion(questionToEdit.question))}>cancel</button>
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
