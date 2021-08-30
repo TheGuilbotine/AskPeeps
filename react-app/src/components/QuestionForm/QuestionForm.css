@@ -1,5 +1,5 @@
 .question-form__container {
-margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .question__submit-button {
@@ -15,4 +15,19 @@ margin-bottom: 20px;
 .question__submit-button:hover {
 cursor: pointer;
 background-color: rgb(105, 148, 241);
+}
+
+.question__cancel-button {
+    border: 2px solid rgb(218, 108, 19);
+    background-color: rgb(238, 160, 88);
+    margin-bottom: 20px;
+    margin-left: 1px;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.question__cancel-button:hover {
+    cursor: pointer;
+    background-color: rgb(218, 108, 19);
 }

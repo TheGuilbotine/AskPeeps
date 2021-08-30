@@ -27,3 +27,8 @@
     text-decoration: underline;
     color: #2c0550
 }
+
+.navbar-button {
+    border: 2px solid rgb(105, 148, 241);
+    border-radius: 4px;
+}

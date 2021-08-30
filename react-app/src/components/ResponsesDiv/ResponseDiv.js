@@ -11,6 +11,7 @@ export default function ResponseDiv({question, sessionUser, showResponsesDiv, se
             {showResponsesDiv && (
                 <div className="response__drop-down">
                     {sessionUser && <ResponseForm questionId={question?.id} />}
+                    <h2 className="responses-title">Responses:</h2>
                     {question.responses && question.responses?.map((response, idx) => (
                         <div key={idx} className="response__container">
                             {response?.username} said, {response.response}
