@@ -32,6 +32,7 @@ export default function QuestionForm() {
         } else {
             dispatch(getQuestions())
             setQuestion('');
+            alert("Your question has been asked")
         }
     };
 
