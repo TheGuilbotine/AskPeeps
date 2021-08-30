@@ -23,12 +23,12 @@ export default function DeleteResponse({responseId,questionId,  setShowModal}) {
     });
     return (
         <div>
-            <div className="delete-confirmation-message">
-                <p className="confirmation-message">Are you sure you want to delete this response?</p>
+            <div className="delete-confirmation__message">
+                <p className="confirmation__message">Are you sure you want to delete this response?</p>
             </div>
-            <div className="delete-confirmation-buttons">
-                <button className="delete-confirmation-button" onClick={handleDelete}>Delete</button>
-                <button className="cancel-confirmation-button" onClick={handleCancel}>Cancel</button>
+            <div className="delete-confirmation__buttons">
+                <button className="delete-confirmation__button" onClick={handleDelete}>Delete</button>
+                <button className="cancel-confirmation__button" onClick={handleCancel}>Cancel</button>
             </div>
         </div>
     );
