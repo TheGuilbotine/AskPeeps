@@ -1,8 +1,8 @@
 .question-edit__submit-button {
-    margin: 10px 0px;
+    margin: 10px 5px;
     border: 2px solid rgb(255, 123, 15);
     border-radius: 4px;
-    padding: 10px;
+    padding: 2px 2px 4px 4px;
     background-color: rgb(236, 167, 110);
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
