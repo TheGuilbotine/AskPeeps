@@ -61,7 +61,7 @@ return (
                         onChange={updateResponse}
                         value={response}
                         required={true}></input>
-                    <button className="response__submit-button" type='submit'>Tell peeps?</button>
+                    {response && <button className="response__submit-button" type='submit'>Tell peeps?</button>}
                     {response && <button className="response__cancel-button" onClick={(() => setResponse(''))}>cancel</button>}
 				</div>
             </form>
