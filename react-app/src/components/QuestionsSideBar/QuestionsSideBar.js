@@ -31,9 +31,16 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
                     <div className="user-questions__container">
                         Your Questions:
                         {questions && questions?.map((question) => (
-                            <>
+                            <div>
                                 {question.question}
-                            </>
+                                <div>
+                                    {question.responses && question.responses?.map((response) => (
+                                        <div>
+                                            - {response.response}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>

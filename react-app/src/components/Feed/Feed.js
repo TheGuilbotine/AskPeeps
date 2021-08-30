@@ -56,7 +56,7 @@ export default function FeedPage() {
                     <div className="question__container" key={idx}>
                         <div className="question-info__container">
                             {question?.username}: {question.question}
-                            {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}>-</button>}
+                            {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>}
                             {sessionUser.id == question.user_id &&  <EditQuestion questionId={question?.id} />}
                         </div>
                         <ResponseDiv setShowResponsesDiv={setShowResponsesDiv} showResponsesDiv={showResponsesDiv} question={question} sessionUser={sessionUser} onDelete={onDelete} EditResponse={EditResponse} ResponseForm={ResponseForm}/>
