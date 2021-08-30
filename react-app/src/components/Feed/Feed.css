@@ -7,6 +7,7 @@
     background-color: rgb(181, 201, 243);
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .question__sidebar-button:hover {
