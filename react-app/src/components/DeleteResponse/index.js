@@ -8,7 +8,7 @@ export default function DeleteQuestionModal({responseId, questionId}) {
 
 	return (
         <>
-            <button id='delete-response__button' onClick={() => setShowModal(true)}>Delete</button>
+            <button id='delete-response__button' onClick={() => setShowModal(true)}><i className="far fa-trash-alt"/></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeleteResponse responseId={responseId} questionId={questionId} setShowModal={setShowModal} />
