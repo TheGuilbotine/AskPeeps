@@ -12,6 +12,7 @@ import ResponseDiv from '../ResponsesDiv/ResponseDiv';
 import DeleteQuestionModal from '../DeleteQuestion';
 import { destroyQuestion } from '../../store/question';
 import { destroyResponse } from '../../store/response';
+import { getUsersQuestions } from '../../store/userInfo';
 
 import './Feed.css'
 
@@ -25,7 +26,8 @@ export default function FeedPage() {
 
     useEffect(() => {
         dispatch(getQuestions())
-    }, [dispatch, EditQuestion])
+        dispatch(getUsersQuestions(sessionUser.id))
+    }, [dispatch])
 
 
     const onDelete = (e, responseId, questionId) => {
@@ -51,8 +53,8 @@ export default function FeedPage() {
                 </button> */}
             </div>
             <div className="questions-feed__container">
-                {questions && questions?.map((question, idx) => (
-                    <div className="question__container" key={idx}>
+                {questions && questions?.map((question) => (
+                    <div className="question__container" key={question.id}>
                         <div className="question-info__container">
                             {question?.username} asked: {question.question}
                             {/* {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>} */}

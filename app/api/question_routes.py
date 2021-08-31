@@ -41,14 +41,26 @@ def questions():
 
 
 @question_routes.route('/<int:id>')
-def question(id):
+def user_questions(id):
     """
-    Get a single question
+    Get all questions pertaining to a user
     """
-    question = Question.query.get(id).to_dict()
-    question["username"] = User.query.get(
-        question["user_id"]).username
-    return {"question": question}
+    questions_query = Question.query.filter(Question.user_id == id).all()
+    return {question.id: question.to_dict() for question in questions_query}
+    # for question in questions:
+    #     question.id = question
+    # return questions
+
+
+# @question_routes.route('/<int:id>')
+# def question(id):
+#     """
+#     Get a single question
+#     """
+#     question = Question.query.get(id).to_dict()
+#     question["username"] = User.query.get(
+#         question["user_id"]).username
+#     return {"question": question}
 
 
 @question_routes.route('/', methods=['POST'])

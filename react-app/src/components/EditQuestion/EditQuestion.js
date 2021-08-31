@@ -9,9 +9,13 @@ import "./EditQuestion.css"
 export default function EditQuestion({responseId, questionId}) {
     const questionToEdit = useSelector((state) => state?.questions[questionId]);
     const userId = useSelector((state) => state.session.user?.id);
+    const [showEditQuestionForm, setShowEditQuestionForm] = useState(false);
 
     const [errors, setErrors] = useState([]);
-    const [question, setQuestion] = useState(questionToEdit.question);
+    const [question, setQuestion] = useState(questionToEdit?.question);
+    console.log('------------------------------------');
+    console.log(question);
+    console.log('------------------------------------');
     const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
@@ -31,10 +35,10 @@ export default function EditQuestion({responseId, questionId}) {
                 editQuestion(
                     questionId,
                     userId,
-                question,
-                answered
+                    question,
+                    answered
                 ),
-        );
+            );
         if (data.errors) {
             setErrors(data.errors);
         } else {
@@ -55,7 +59,7 @@ export default function EditQuestion({responseId, questionId}) {
 
     return (
         <div>
-            <form onSubmit={onEdit} className='edit-question__form'>
+            {showEditQuestionForm && <form onSubmit={onEdit} className='edit-question__form'>
                 <div>
                     {errors?.map((error, idx) => (
                         <div key={idx}>{error}</div>
@@ -70,19 +74,20 @@ export default function EditQuestion({responseId, questionId}) {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
-                    <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit"/></button>
                     {question !== questionToEdit.question && <button className="question__cancel-button" onClick={(() => setQuestion(questionToEdit.question))}>cancel</button>}
+                <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
                     <input
-                        className='form-input__checkbox'
-                        type='checkbox'
-                        name='answered'
-                        value={answered}
-                        onChange={updateAnswered}></input>
+                    className='form-input__checkbox'
+                    type='checkbox'
+                    name='answered'
+                    value={answered}
+                    onChange={updateAnswered}></input>
 				</div> */}
-            </form>
+            </form>}
+            <button className="question-edit__submit-button" onClick={() => setShowEditQuestionForm((questionFormShown) => !questionFormShown)}><i className="fas fa-edit"/></button>
         </div>
     )
 }

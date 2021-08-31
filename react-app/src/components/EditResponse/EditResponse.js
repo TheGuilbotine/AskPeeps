@@ -9,7 +9,7 @@ import './EditResponse.css';
 export default function EditResponse({responseId, questionId}) {
     const responsesToFilter = useSelector((state) => state?.questions[questionId]?.responses);
     const responsesFiltered = responsesToFilter.filter((response) => response.id === responseId)
-    const responseToEdit = responsesFiltered[0].response
+    const responseToEdit = responsesFiltered[0].response;
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
@@ -18,9 +18,6 @@ export default function EditResponse({responseId, questionId}) {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getQuestions());
-    // }, [dispatch])
 
     const onEdit = async (e) => {
         e.preventDefault();
@@ -43,6 +40,10 @@ export default function EditResponse({responseId, questionId}) {
     const updateResponse = (e) => {
         setResponse(e.target.value);
     };
+
+    useEffect(() => {
+        // dispatch(getQuestions());
+    }, [dispatch, onEdit])
 
     return (
         <div>
