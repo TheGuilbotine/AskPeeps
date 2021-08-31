@@ -6,17 +6,17 @@ import { createResponse, getQuestionResponses } from '../../store/response';
 import "./ResponseForm.css"
 
 
-export default function ResponseForm({questionId}) {
+export default function ResponseForm({question}) {
     const [errors, setErrors] = useState([]);
     const [response, setResponse] = useState('');
     const userId = useSelector((state => state.session.user.id))
     const user = useSelector((state => state.session.user))
-    // const questionId = useSelector((state => state.questions["questionId"]))
+    const questionId = question.id
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getQuestionResponses(questionId));
+        dispatch(getQuestionResponses(question.id));
     }, [dispatch])
 
     const onCreate = async (e) => {
@@ -61,7 +61,7 @@ return (
                         onChange={updateResponse}
                         value={response}
                         required={true}></input>
-                    {response && <button className="response__submit-button" type='submit'>Tell peeps?</button>}
+                    {response && <button className="response__submit-button" type='submit'>Tell {question.username}?</button>}
                     {response && <button className="response__cancel-button" onClick={(() => setResponse(''))}>cancel</button>}
 				</div>
             </form>
