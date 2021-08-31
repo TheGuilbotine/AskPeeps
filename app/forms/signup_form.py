@@ -36,7 +36,7 @@ def first_name_length(form, field):
 
 
 def last_name_length(form, field):
-    # Check if first name is less than 30 characters
+    # Check if last name is less than 30 characters
     last_name = field.data
     if len(last_name) > 30:
         raise ValidationError(
@@ -44,18 +44,25 @@ def last_name_length(form, field):
 
 
 def email_length(form, field):
-    # Check if first name is less than 30 characters
-    last_name = field.data
-    if len(last_name) > 255:
+    # Check if email is less than 30 characters
+    email = field.data
+    if len(email) > 255:
         raise ValidationError(
             'Email must be less than 255 characters.')
+
+
+def email_at_symbol(form, field):
+    # Check is email has an @ symbol
+    email = field.data
+    if "@" not in email:
+        raise ValidationError('Email must be valid.')
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists, username_length])
     email = StringField('email', validators=[
-                        DataRequired(), user_exists, email_length])
+                        DataRequired(), user_exists, email_length, email_at_symbol])
     f_name = StringField('f_name', validators=[
                          DataRequired(), first_name_length])
     l_name = StringField('l_name', validators=[
