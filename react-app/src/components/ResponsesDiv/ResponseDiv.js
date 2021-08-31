@@ -12,7 +12,7 @@ export default function ResponseDiv({question, sessionUser, onDelete, EditRespon
             {/* <span className="response__drop-down__button"  onClick={() => setShowResponsesDiv((false))}>Responses</span> */}
             {showResponsesDiv && (
                 <div className="response__drop-down">
-                    {sessionUser && <ResponseForm questionId={question?.id} />}
+                    {sessionUser && <ResponseForm question={question} />}
                     {question.responses.length && <h2 className="responses-title">Responses:</h2>}
                     {question.responses && question.responses?.map((response, idx) => (
                         <div key={idx} className="response__container">

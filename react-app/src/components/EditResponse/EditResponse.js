@@ -61,8 +61,8 @@ export default function EditResponse({responseId, questionId}) {
                         onChange={updateResponse}
                         value={response}
                         required={true}></input>
-                <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>
-                {response !== responseToEdit && <button className="question__cancel-button" onClick={(() => setResponse(responseToEdit))}>cancel</button>}
+                    {response !== responseToEdit && <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>}
+                    {response !== responseToEdit && <button className="question__cancel-button" onClick={(() => setResponse(responseToEdit))}>cancel</button>}
 				</div>
             </form>
         </div>
