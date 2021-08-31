@@ -63,7 +63,7 @@ export default function QuestionForm() {
                         value={question}
                         required={true}
                     ></input>
-                    <button className="question__submit-button" type='submit'>AskPeeps</button>
+                    {question && <button className="question__submit-button" type='submit'>AskPeeps</button>}
 				</div>
                 {question && <button className="question__cancel-button" onClick={(() => setQuestion(''))}>cancel</button>}
                 {/* <div className='form-label__container'>
