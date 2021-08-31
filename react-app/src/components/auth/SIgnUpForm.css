@@ -6,6 +6,16 @@
     margin-top: 2%;
  }
 
+ @media screen and (max-width: 1059px) {
+    .signup-form__container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        margin-left: 50%;
+        margin-top: 10%;
+     }
+ }
+
  h1, label, .signup-button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
