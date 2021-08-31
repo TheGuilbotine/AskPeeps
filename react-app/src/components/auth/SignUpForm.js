@@ -82,7 +82,6 @@ const SignUpForm = () => {
           ))}
         </div>
         <div className='inputs__container'>
-
           <div className='inputs__container-left'>
             <div className='form-input__container'>
               <input
