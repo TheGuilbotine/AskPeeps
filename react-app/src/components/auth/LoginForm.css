@@ -7,6 +7,16 @@
    margin-bottom: 5%;
 }
 
+@media screen and (max-width: 1059px) {
+    .login-form__container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        margin-left: 50%;
+        margin-top: 10%;
+     }
+ }
+
 .login-form {
     border: 2px solid rgb(181, 201, 243);
     padding: 40px;
