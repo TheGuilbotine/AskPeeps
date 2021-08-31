@@ -25,7 +25,7 @@ export default function FeedPage() {
 
     useEffect(() => {
         dispatch(getQuestions())
-    }, [dispatch, EditQuestion])
+    }, [dispatch])
 
 
     const onDelete = (e, responseId, questionId) => {

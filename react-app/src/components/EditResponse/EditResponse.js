@@ -9,7 +9,7 @@ import './EditResponse.css';
 export default function EditResponse({responseId, questionId}) {
     const responsesToFilter = useSelector((state) => state?.questions[questionId]?.responses);
     const responsesFiltered = responsesToFilter.filter((response) => response.id === responseId)
-    const responseToEdit = responsesFiltered[0].response
+    const responseToEdit = responsesFiltered[0].response;
     const userId = useSelector((state) => state.session.user?.id);
 
     const [errors, setErrors] = useState([]);
