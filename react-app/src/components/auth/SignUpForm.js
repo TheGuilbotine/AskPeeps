@@ -19,6 +19,11 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    // if(!email.includes('@')) {
+    //   errors.push("Please enter a valid email.")
+    // }
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(
                                   username,
@@ -39,6 +44,7 @@ const SignUpForm = () => {
       setErrors(["Passwords do not match"])
     }
   };
+
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -82,7 +88,6 @@ const SignUpForm = () => {
           ))}
         </div>
         <div className='inputs__container'>
-
           <div className='inputs__container-left'>
             <div className='form-input__container'>
               <input

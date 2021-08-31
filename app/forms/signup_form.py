@@ -20,12 +20,53 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
+def username_length(form, field):
+    # Check if username length is less than 25 chars
+    username = field.data
+    if len(username) > 25:
+        raise ValidationError('Username must be less than 25 characters.')
+
+
+def first_name_length(form, field):
+    # Check if first name is less than 30 characters
+    first_name = field.data
+    if len(first_name) > 30:
+        raise ValidationError(
+            'My you have a long first name. Please enter the first 30 characters.')
+
+
+def last_name_length(form, field):
+    # Check if last name is less than 30 characters
+    last_name = field.data
+    if len(last_name) > 30:
+        raise ValidationError(
+            'My you have a long last name. Please enter the first 30 characters.')
+
+
+def email_length(form, field):
+    # Check if email is less than 30 characters
+    email = field.data
+    if len(email) > 255:
+        raise ValidationError(
+            'Email must be less than 255 characters.')
+
+
+def email_at_symbol(form, field):
+    # Check is email has an @ symbol
+    email = field.data
+    if "@" not in email:
+        raise ValidationError('Email must be valid.')
+
+
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    f_name = StringField('f_name', validators=[DataRequired()])
-    l_name = StringField('l_name', validators=[DataRequired()])
+        'username', validators=[DataRequired(), username_exists, username_length])
+    email = StringField('email', validators=[
+                        DataRequired(), user_exists, email_length, email_at_symbol])
+    f_name = StringField('f_name', validators=[
+                         DataRequired(), first_name_length])
+    l_name = StringField('l_name', validators=[
+                         DataRequired(), last_name_length])
     birth_date = DateField('birth_date', validators=[DataRequired()])
     password = StringField('password', validators=[
         DataRequired()
