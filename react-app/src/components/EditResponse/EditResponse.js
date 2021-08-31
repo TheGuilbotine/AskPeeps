@@ -18,9 +18,6 @@ export default function EditResponse({responseId, questionId}) {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getQuestions());
-    // }, [dispatch])
 
     const onEdit = async (e) => {
         e.preventDefault();
@@ -43,6 +40,10 @@ export default function EditResponse({responseId, questionId}) {
     const updateResponse = (e) => {
         setResponse(e.target.value);
     };
+
+    useEffect(() => {
+        // dispatch(getQuestions());
+    }, [dispatch, onEdit])
 
     return (
         <div>

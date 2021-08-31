@@ -13,6 +13,9 @@ export default function EditQuestion({responseId, questionId}) {
 
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
+    console.log('------------------------------------');
+    console.log(question);
+    console.log('------------------------------------');
     const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
@@ -72,6 +75,7 @@ export default function EditQuestion({responseId, questionId}) {
                         value={question}
                         required={true}></input>
                     {question !== questionToEdit.question && <button className="question__cancel-button" onClick={(() => setQuestion(questionToEdit.question))}>cancel</button>}
+                <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>

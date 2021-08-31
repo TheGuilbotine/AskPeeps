@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { createQuestion, getQuestions } from '../../store/question';
+import { createQuestion, getQuestions, getUserQuestions } from '../../store/question';
 import "./QuestionForm.css"
 
-export default function QuestionForm() {
+export default function QuestionForm({questions}) {
     const [errors, setErrors] = useState([]);
     // const [userId, setUserId] = useState([]);
     const [question, setQuestion] = useState('');
@@ -14,9 +14,6 @@ export default function QuestionForm() {
     const dispatch = useDispatch();
     // const history = useHistory();
 
-    useEffect(() => {
-		dispatch(getQuestions());
-	}, [dispatch]);
 
     const onCreate = async (e) => {
         e.preventDefault();
@@ -31,10 +28,15 @@ export default function QuestionForm() {
             setErrors(data.errors)
         } else {
             dispatch(getQuestions())
+            // dispatch(getUserQuestions(userId))
             setQuestion('');
             alert("Your question has been asked")
         }
     };
+
+    // useEffect(() => {
+    //     // dispatch(getQuestions());
+    // }, [dispatch, onCreate]);
 
     const updateQuestion = (e) => {
         setQuestion(e.target.value);

@@ -1,3 +1,6 @@
+import { destroyUserQuestion, createUserQuestion } from "./userInfo";
+
+
 export const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS';
 export const CREATE_QUESTION = 'questions/CREATE_QUESTION';
 export const DESTROY_QUESTION = 'questions/DESTROY_QUESTION'
@@ -9,7 +12,7 @@ const load = questions => ({
 
 const addQuestion = question => ({
     type: CREATE_QUESTION,
-    question
+    question,
 })
 
 const removeQuestion = questionId => ({
@@ -37,18 +40,20 @@ export const getOneQuestion = (questionId) => async dispatch => {
     }
 };
 
+
 // TODO: Get all questions of one user
-export const getUserQuestions = (id) => async dispatch => {
-    const res = await fetch(`/api/users/${id}`)
+// export const getUserQuestions = (id) => async dispatch => {
+//     const res = await fetch(`/api/users/${id}`)
 
-    if (res.ok) {
-        const questions = await res.json();
-        dispatch(load(questions.questions));
-        return res;
-    }
-};
+//     if (res.ok) {
+//         const questions = await res.json();
+//         dispatch(load(questions.questions));
+//         return res;
+//     }
+// };
+
+
 // TODO: Get one question(might not be necessary)
-
 export const createQuestion = (userId, question, answered) => async dispatch => {
     const res = await fetch('/api/questions/', {
         method: 'POST',
@@ -64,6 +69,7 @@ export const createQuestion = (userId, question, answered) => async dispatch => 
     const asked_question = await res.json();
     if (res.ok) {
         dispatch(addQuestion(asked_question));
+        dispatch(createUserQuestion(asked_question));
         return asked_question
     }
 };
@@ -94,6 +100,7 @@ export const destroyQuestion = (questionId) => async dispatch => {
     });
     if (deleted) {
         dispatch(removeQuestion(questionId))
+        dispatch(destroyUserQuestion(questionId))
         return deleted;
     }
 };
@@ -131,7 +138,7 @@ const questionsReducer = (state = {}, action) => {
         case CREATE_QUESTION: {
             const newState = {
                 ...state,
-                [action.question.id]: action.question
+                [action.question?.id]: action.question
             };
             return newState;
             // return {

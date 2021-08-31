@@ -74,11 +74,12 @@ export const destroyResponse = (responseId, questionId) => async dispatch => {
     });
     if (deleted) {
         dispatch(removeResponse(responseId))
-        dispatch(getOneQuestion(questionId))
+        // dispatch(getOneQuestion(questionId))
         return deleted;
     }
 };
 
+// const initialState = {questions: {responses: {...responses}}}
 
 const responsesReducer = (state = {}, action) => {
     if (!action) return state;
