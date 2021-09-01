@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getQuestions } from '../../store/question';
-import { destroyResponse } from '../../store/response';
+import { destroyResponse, getQuestionResponses } from '../../store/response';
 
 import './DeleteResponse.css'
 
 export default function DeleteResponse({responseId,questionId,  setShowModal}) {
     const dispatch = useDispatch();
 
-    const handleDelete = (e) => {
-        const deleted = dispatch(destroyResponse(responseId, questionId));
+    const handleDelete = async (e) => {
+        const deleted = await dispatch(destroyResponse(responseId, questionId));
         if (deleted) {
             e.preventDefault();
-            dispatch(getQuestions())
+            await dispatch(getQuestions())
+            await dispatch(getQuestionResponses())
             // TODO qetUserINfo
             // dispatch(getUser)
             setShowModal(false);
