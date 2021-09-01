@@ -14,9 +14,21 @@ export default function EditResponse({responseId, questionId}) {
 
     const [errors, setErrors] = useState([]);
     const [response, setResponse] = useState(responseToEdit);
+    const [showEditResponseForm, setShowEditResponseForm] = useState(false);
 
 
     const dispatch = useDispatch();
+
+    const showEditForm = async (e) => {
+        e.preventDefault();
+        setShowEditResponseForm((responseEditFormShown) => !responseEditFormShown)
+    }
+
+    const onCancel = async (e) => {
+        e.preventDefault();
+        setResponse(responseToEdit)
+        setShowEditResponseForm((responseEditFormShown) => !responseEditFormShown)
+    }
 
 
     const onEdit = async (e) => {
@@ -35,6 +47,7 @@ export default function EditResponse({responseId, questionId}) {
         } else {
             setResponse(data.response)
             dispatch(getQuestions())
+            setShowEditResponseForm((responseEditFormShown) => !responseEditFormShown)
         }
     };
     const updateResponse = (e) => {
@@ -47,7 +60,7 @@ export default function EditResponse({responseId, questionId}) {
 
     return (
         <div>
-            <form onSubmit={onEdit} className='edit-response__form'>
+            {showEditResponseForm && <form onSubmit={onEdit} className='edit-response__form'>
                 <div>
                     {errors?.map((error, idx) => (
                         <div key={idx}>{error}</div>
@@ -62,10 +75,11 @@ export default function EditResponse({responseId, questionId}) {
                         onChange={updateResponse}
                         value={response}
                         required={true}></input>
-                    {response !== responseToEdit && <button className="question-edit__submit-button" type='submit'><i className="fas fa-edit" /></button>}
-                    {response !== responseToEdit && <button className="question__cancel-button" onClick={(() => setResponse(responseToEdit))}>cancel</button>}
+                    {response !== responseToEdit && <button className="question-edit__submit-button" type='submit'>submit edit</button>}
+                    {response !== responseToEdit && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
 				</div>
-            </form>
+            </form>}
+            <button className="question-edit__submit-button" onClick={showEditForm}><i className="fas fa-edit"/></button>
         </div>
     )
 }
