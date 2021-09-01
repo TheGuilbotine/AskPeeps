@@ -51,6 +51,7 @@ h1 {
     display: none;
 }
 
+
 .question-info__container {
     margin-bottom: 22px;
 }
@@ -97,4 +98,5 @@ h1 {
     padding: 20px;
     width: 76%;
     text-align: center;
+    background-color: rgba(225, 225, 225, 0.885);
 }

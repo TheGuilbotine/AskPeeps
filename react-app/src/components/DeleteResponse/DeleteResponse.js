@@ -12,20 +12,22 @@ export default function DeleteResponse({responseId,questionId,  setShowModal}) {
         const deleted = await dispatch(destroyResponse(responseId, questionId));
         if (deleted) {
             e.preventDefault();
+            alert("Your response has been deleted!")
             await dispatch(getQuestions())
-            await dispatch(getQuestionResponses())
+            // await dispatch(getQuestionResponses())
             // TODO qetUserINfo
             // dispatch(getUser)
             setShowModal(false);
-            alert("Your response has been deleted!")
         } else {
             alert("Please try again")
         }
     };
+
     const handleCancel = ((e) => {
         e.preventDefault();
         setShowModal(false)
     });
+
     return (
         <div>
             <div className="delete-confirmation__message">

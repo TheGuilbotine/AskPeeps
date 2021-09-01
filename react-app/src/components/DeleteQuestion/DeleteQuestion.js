@@ -7,8 +7,8 @@ import './DeleteQuestion.css'
 export default function DeleteQuestion({questionId, setShowModal}) {
     const dispatch = useDispatch();
 
-    const handleDelete = (e) => {
-        const deleted = dispatch(destroyQuestion(questionId));
+    const handleDelete = async (e) => {
+        const deleted = await dispatch(destroyQuestion(questionId));
         if (deleted) {
             e.preventDefault();
             setShowModal(false);
@@ -17,10 +17,12 @@ export default function DeleteQuestion({questionId, setShowModal}) {
             alert("Please try again")
         }
     };
+
     const handleCancel = ((e) => {
         e.preventDefault();
         setShowModal(false)
     });
+
     return (
         <div>
             <div className="delete-confirmation__message">
