@@ -14,7 +14,7 @@ export default function ResponseDiv({question, sessionUser, onDelete, EditRespon
                 <div className="response__drop-down">
                     {sessionUser && <ResponseForm question={question} />}
                     <h2 className="responses-title">{question.responses.length ? "Responses:" : "Be the first to respond"}</h2>
-                    {question.responses && question.responses?.map((response, idx) => (
+                    {question.responses && question.responses?.map((response) => (
                         <div key={response.id} className="response__container">
                             {response?.username} said, {response.response}
                             {/* {sessionUser.id == response.user_id &&  <button className="delete--button" onClick={(e) => onDelete(e, response.id, question.id)}><i className="far fa-trash-alt"/></button>} */}

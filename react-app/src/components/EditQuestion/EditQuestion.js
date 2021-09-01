@@ -28,6 +28,7 @@ export default function EditQuestion({responseId, questionId}) {
 
         const showEditForm = async (e) => {
             e.preventDefault();
+            setQuestion(questionToEdit?.question)
             setShowEditQuestionForm((questionFormShown) => !questionFormShown)
             // await dispatch(getUsersQuestions(userId))
         }

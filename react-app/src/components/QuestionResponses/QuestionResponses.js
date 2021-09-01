@@ -10,9 +10,6 @@ export default function QuestionResponses({questionId}) {
     const dispatch = useDispatch();
     // const responses = Object.values(useSelector((state) => state.responses));
     const [responses, setResponses] = useState([])
-    console.log('------------------------------------');
-    console.log(responses);
-    console.log('------------------------------------');
 
 
     useEffect(() => {
@@ -23,8 +20,8 @@ export default function QuestionResponses({questionId}) {
 
     return (
         <div>
-            {responses && responses?.map((response, idx) => (
-                <div key={idx}>
+            {responses && responses?.map((response) => (
+                <div key={response.id}>
                     {response?.username} {response.response}
                 </div>
             ))}
