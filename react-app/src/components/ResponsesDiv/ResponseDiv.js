@@ -4,7 +4,7 @@ import './ResponseDiv.css'
 
 
 export default function ResponseDiv({question, sessionUser, onDelete, EditResponse, ResponseForm}) {
-    const questionId = question.id
+    // const questionId = question.id
     const [showResponsesDiv, setShowResponsesDiv] = useState(false);
 
     return (

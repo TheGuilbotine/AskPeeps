@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { getQuestions } from '../../store/question';
-import { destroyResponse, getQuestionResponses } from '../../store/response';
+import { destroyResponse} from '../../store/response';
 
 import './DeleteResponse.css'
 

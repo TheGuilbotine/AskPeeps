@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { createQuestion, getQuestions, getUserQuestions } from '../../store/question';
+import { createQuestion, getQuestions } from '../../store/question';
 import "./QuestionForm.css"
 
 export default function QuestionForm({questions}) {
     const [errors, setErrors] = useState([]);
     // const [userId, setUserId] = useState([]);
     const [question, setQuestion] = useState('');
-    const [answered, setAnswered] = useState('');
+    // TODO Readd setAnswered
+    const [answered] = useState('');
     // const username = useSelector((state) => state.session.user.username)
     const userId = useSelector((state => state.session.user.id))
     const dispatch = useDispatch();
@@ -41,9 +42,10 @@ export default function QuestionForm({questions}) {
     const updateQuestion = (e) => {
         setQuestion(e.target.value);
     };
-    const updateAnswered = (e) => {
-        setAnswered(e.target.value);
-    };
+
+    // const updateAnswered = (e) => {
+    //     setAnswered(e.target.value);
+    // };
 
     // TODO: Add session links for session user
 
