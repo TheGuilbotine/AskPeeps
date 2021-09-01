@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { editQuestion, getQuestions } from '../../store/question';
+import { getUsersQuestions } from '../../store/userInfo';
 
 import "./EditQuestion.css"
 
@@ -24,6 +25,12 @@ export default function EditQuestion({responseId, questionId}) {
         //     // dispatch(question)
         //     setQuestion(e.target.value)
         // }
+
+        const showEditForm = async (e) => {
+            e.preventDefault();
+            setShowEditQuestionForm((questionFormShown) => !questionFormShown)
+            // await dispatch(getUsersQuestions(userId))
+        }
 
         const onCancel = async (e) => {
             e.preventDefault();
@@ -91,7 +98,7 @@ export default function EditQuestion({responseId, questionId}) {
                     onChange={updateAnswered}></input>
 				</div> */}
             </form>}
-            <button className="question-edit__submit-button" onClick={() => setShowEditQuestionForm((questionFormShown) => !questionFormShown)}><i className="fas fa-edit"/></button>
+            <button className="question-edit__submit-button" onClick={showEditForm}><i className="fas fa-edit"/></button>
         </div>
     )
 }
