@@ -8,12 +8,12 @@ import './DeleteResponse.css'
 export default function DeleteResponse({responseId,questionId,  setShowModal}) {
     const dispatch = useDispatch();
 
-    const handleDelete = async (e) => {
-        const deleted = await dispatch(destroyResponse(responseId, questionId));
+    const handleDelete = (e) => {
+        const deleted = dispatch(destroyResponse(responseId, questionId));
         if (deleted) {
             e.preventDefault();
             alert("Your response has been deleted!")
-            await dispatch(getQuestions())
+            dispatch(getQuestions())
             // await dispatch(getQuestionResponses())
             // TODO qetUserINfo
             // dispatch(getUser)
