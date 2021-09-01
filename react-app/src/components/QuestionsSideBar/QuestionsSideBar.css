@@ -12,3 +12,12 @@
     cursor: pointer;
     background-color: rgb(105, 148, 241);
 }
+
+.user-questions__map-container {
+    box-sizing: border-box;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    overflow-y: scroll;
+    height: 45vh;
+}

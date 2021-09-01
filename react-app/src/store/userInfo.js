@@ -29,10 +29,14 @@ export const getUsersQuestions = (userId) => async dispatch => {
 
 export const destroyUserQuestion = (questionId) => async dispatch => {
     dispatch(removeUserQuestion(questionId));
-}
+};
 
 export const createUserQuestion = (asked_question) => async dispatch => {
     dispatch(addUserQuestion(asked_question))
+};
+
+export const editUserQuestion = (editedQuestion) => async dispatch => {
+    dispatch(addUserQuestion(editedQuestion))
 };
 
 

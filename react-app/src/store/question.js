@@ -1,4 +1,4 @@
-import { destroyUserQuestion, createUserQuestion } from "./userInfo";
+import { destroyUserQuestion, createUserQuestion, editUserQuestion } from "./userInfo";
 
 
 export const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS';
@@ -90,6 +90,7 @@ export const editQuestion = (questionId, userId, question, answered) => async di
     const editedQuestion = await res.json();
     if (res.ok) {
         dispatch(addQuestion(editedQuestion))
+        dispatch(editUserQuestion(editedQuestion))
     }
     return editedQuestion;
 };

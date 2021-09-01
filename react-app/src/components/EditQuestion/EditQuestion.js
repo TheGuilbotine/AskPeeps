@@ -13,9 +13,6 @@ export default function EditQuestion({responseId, questionId}) {
 
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
-    console.log('------------------------------------');
-    console.log(question);
-    console.log('------------------------------------');
     const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
