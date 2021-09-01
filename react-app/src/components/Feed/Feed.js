@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { getQuestions, getUserQuestions } from '../../store/question';
+// import { Redirect } from 'react-router-dom';
+import { getQuestions } from '../../store/question';
 // import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
 import EditQuestion from '../EditQuestion/EditQuestion';
 import ResponseForm from '../ResponseForm/ResponseForm';
@@ -10,7 +10,7 @@ import QuestionSideBar from '../QuestionsSideBar/QuestionsSideBar'
 import ResponseDiv from '../ResponsesDiv/ResponseDiv';
 // import QuestionResponses from '../QuestionResponses';
 import DeleteQuestionModal from '../DeleteQuestion';
-import { destroyQuestion } from '../../store/question';
+// import { destroyQuestion } from '../../store/question';
 import { destroyResponse } from '../../store/response';
 import { getUsersQuestions } from '../../store/userInfo';
 

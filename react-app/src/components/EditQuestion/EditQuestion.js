@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { editQuestion, getQuestions } from '../../store/question';
-import { getUsersQuestions } from '../../store/userInfo';
+// import { getUsersQuestions } from '../../store/userInfo';
 
 import "./EditQuestion.css"
 
@@ -14,7 +14,8 @@ export default function EditQuestion({responseId, questionId}) {
 
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
-    const [answered, setAnswered] = useState(questionToEdit?.answered);
+    // TODO Readd setAnswered
+    const [answered] = useState(questionToEdit?.answered);
 
 
     const dispatch = useDispatch();
@@ -58,12 +59,14 @@ export default function EditQuestion({responseId, questionId}) {
             setShowEditQuestionForm((questionFormShown) => !questionFormShown)
         }
     };
+
     const updateQuestion = (e) => {
         setQuestion(e.target.value);
     };
-    const updateAnswered = (e) => {
-        setAnswered(e.target.value);
-    };
+
+    // const updateAnswered = (e) => {
+    //     setAnswered(e.target.value);
+    // };
 
     // useEffect(() => {
     //     dispatch(getQuestions());

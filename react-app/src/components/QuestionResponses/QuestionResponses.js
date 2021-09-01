@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getQuestions } from '../../store/question';
+import { useDispatch } from 'react-redux';
+// import { getQuestions } from '../../store/question';
 import { getQuestionResponses } from '../../store/response';
 
 import './QuestionResponses.css'
