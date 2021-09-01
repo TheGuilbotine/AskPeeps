@@ -7,8 +7,8 @@ import './DeleteQuestion.css'
 export default function DeleteQuestion({questionId, setShowModal}) {
     const dispatch = useDispatch();
 
-    const handleDelete = async (e) => {
-        const deleted = await dispatch(destroyQuestion(questionId));
+    const handleDelete = (e) => {
+        const deleted = dispatch(destroyQuestion(questionId));
         if (deleted) {
             e.preventDefault();
             setShowModal(false);
