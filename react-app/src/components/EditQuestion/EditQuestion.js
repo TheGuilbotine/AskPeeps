@@ -13,9 +13,6 @@ export default function EditQuestion({responseId, questionId}) {
 
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
-    console.log('------------------------------------');
-    console.log(question);
-    console.log('------------------------------------');
     const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
@@ -27,6 +24,12 @@ export default function EditQuestion({responseId, questionId}) {
         //     // dispatch(question)
         //     setQuestion(e.target.value)
         // }
+
+        const onCancel = async (e) => {
+            e.preventDefault();
+            setQuestion(questionToEdit.question)
+            setShowEditQuestionForm((questionFormShown) => !questionFormShown)
+        }
 
         const onEdit = async (e) => {
             e.preventDefault();
@@ -44,6 +47,7 @@ export default function EditQuestion({responseId, questionId}) {
         } else {
             dispatch(getQuestions())
             setQuestion(data.question)
+            setShowEditQuestionForm((questionFormShown) => !questionFormShown)
         }
     };
     const updateQuestion = (e) => {
@@ -74,8 +78,8 @@ export default function EditQuestion({responseId, questionId}) {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
-                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={(() => setQuestion(questionToEdit.question))}>cancel</button>}
-                <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>
+                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
+                    {question !== questionToEdit.question && <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>}
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>

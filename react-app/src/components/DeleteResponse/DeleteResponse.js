@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { getQuestions } from '../../store/question';
 import { destroyResponse } from '../../store/response';
 
 import './DeleteResponse.css'
@@ -11,6 +12,9 @@ export default function DeleteResponse({responseId,questionId,  setShowModal}) {
         const deleted = dispatch(destroyResponse(responseId, questionId));
         if (deleted) {
             e.preventDefault();
+            dispatch(getQuestions())
+            // TODO qetUserINfo
+            // dispatch(getUser)
             setShowModal(false);
             alert("Your response has been deleted!")
         } else {
