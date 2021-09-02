@@ -51,9 +51,6 @@ export default function userInfoReducer(state = initialState, action) {
             newState.questions = action.information
             return newState
         case CREATE_USER_QUESTION:
-            console.log('------------------------------------');
-            console.log(action.asked_question);
-            console.log('------------------------------------');
             const newCreateState = {questions: {...state.questions, [action.asked_question.id]: action.asked_question} , responses: {...state.responses}}
             return newCreateState
         case DESTROY_USER_QUESTION:

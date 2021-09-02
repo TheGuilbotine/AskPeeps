@@ -52,7 +52,7 @@ return (
                     ))}
                 </div>
                 <div className='form-label__container question-label__container'>
-                    Hey {user.username},
+                <span className="title-text">Hey {user.username},</span>
                     <input
                         className='form-input question-input'
                         placeholder='Do you have a response?'

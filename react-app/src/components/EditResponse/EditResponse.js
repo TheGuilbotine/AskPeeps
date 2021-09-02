@@ -54,9 +54,9 @@ export default function EditResponse({responseId, questionId}) {
         setResponse(e.target.value);
     };
 
-    useEffect(() => {
-        // dispatch(getQuestions());
-    }, [dispatch, onEdit])
+    // useEffect(() => {
+    //     // dispatch(getQuestions());
+    // }, [dispatch, onEdit])
 
     return (
         <div>

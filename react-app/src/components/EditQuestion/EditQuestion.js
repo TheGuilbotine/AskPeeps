@@ -15,7 +15,7 @@ export default function EditQuestion({responseId, questionId}) {
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
     // TODO Readd setAnswered
-    const [answered] = useState(questionToEdit?.answered);
+    const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
     const dispatch = useDispatch();
@@ -51,6 +51,7 @@ export default function EditQuestion({responseId, questionId}) {
                     answered
                 ),
             );
+
         if (data.errors) {
             setErrors(data.errors);
         } else {
@@ -89,8 +90,8 @@ export default function EditQuestion({responseId, questionId}) {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
-                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
                     {question !== questionToEdit.question && <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>}
+                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>
@@ -106,3 +107,10 @@ export default function EditQuestion({responseId, questionId}) {
         </div>
     )
 }
+
+
+
+
+// if (response === "") {
+//     errors.push('You can not leave a blank edit.')
+// } else
