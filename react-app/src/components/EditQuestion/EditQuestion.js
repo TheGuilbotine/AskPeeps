@@ -15,7 +15,7 @@ export default function EditQuestion({responseId, questionId}) {
     const [errors, setErrors] = useState([]);
     const [question, setQuestion] = useState(questionToEdit?.question);
     // TODO Readd setAnswered
-    const [answered] = useState(questionToEdit?.answered);
+    const [answered, setAnswered] = useState(questionToEdit?.answered);
 
 
     const dispatch = useDispatch();
@@ -51,6 +51,7 @@ export default function EditQuestion({responseId, questionId}) {
                     answered
                 ),
             );
+
         if (data.errors) {
             setErrors(data.errors);
         } else {
