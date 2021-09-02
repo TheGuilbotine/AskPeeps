@@ -90,8 +90,8 @@ export default function EditQuestion({responseId, questionId}) {
                         onChange={updateQuestion}
                         value={question}
                         required={true}></input>
-                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
                     {question !== questionToEdit.question && <button className="question-edit__submit-button" onClick={onEdit}>submit edit</button>}
+                    {question !== questionToEdit.question && <button className="question__cancel-button" onClick={onCancel}>cancel</button>}
 				</div>
                 {/* <div className='form-label__container'>
                     <label>Has your question been answered?</label>

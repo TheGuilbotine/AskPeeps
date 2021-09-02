@@ -100,3 +100,7 @@ h1 {
     text-align: center;
     background-color: rgba(225, 225, 225, 0.885);
 }
+
+.title-text {
+    font-weight: 600;
+}

@@ -38,3 +38,19 @@ body {
     font-weight: 600;
     color: rgb(47, 94, 197);
 }
+
+
+.features-list__container {
+    box-sizing: border-box;
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 30%;
+}
+
+.features-coming {
+    font-weight: 600;
+}
+
+.happy-text {
+    font-weight: 700;
+}

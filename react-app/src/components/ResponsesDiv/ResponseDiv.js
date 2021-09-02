@@ -16,7 +16,7 @@ export default function ResponseDiv({question, sessionUser, onDelete, EditRespon
                     <h2 className="responses-title">{question.responses.length ? "Responses:" : "Be the first to respond"}</h2>
                     {question.responses && question.responses?.map((response) => (
                         <div key={response.id} className="response__container">
-                            {response?.username} said, {response.response}
+                            <span className="title-text">{response?.username} said,</span> {response.response}
                             {/* {sessionUser.id == response.user_id &&  <button className="delete--button" onClick={(e) => onDelete(e, response.id, question.id)}><i className="far fa-trash-alt"/></button>} */}
                             {sessionUser.id === response.user_id && <DeleteResponseModal responseId={response?.id} questionId={question.id} />}
                             {sessionUser.id === response.user_id &&  <EditResponse responseId={response?.id} questionId={question?.id} />}

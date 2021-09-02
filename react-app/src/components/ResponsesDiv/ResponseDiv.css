@@ -25,6 +25,6 @@
     text-decoration: underline;
 }
 
-/* .hidden {
-    visibility: hidden;
-} */
+.response__container {
+    line-height: 25px;
+}
