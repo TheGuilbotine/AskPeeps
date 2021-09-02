@@ -9,7 +9,7 @@ export default function QuestionForm({questions}) {
     // const [userId, setUserId] = useState([]);
     const [question, setQuestion] = useState('');
     // TODO Readd setAnswered
-    const [answered] = useState('');
+    const [answered, setAnswered] = useState('');
     // const username = useSelector((state) => state.session.user.username)
     const userId = useSelector((state => state.session.user.id))
     const dispatch = useDispatch();
