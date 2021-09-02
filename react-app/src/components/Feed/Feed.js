@@ -27,7 +27,7 @@ export default function FeedPage() {
     useEffect(() => {
         dispatch(getQuestions())
         dispatch(getUsersQuestions(sessionUser.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser.id])
 
 
     const onDelete = (e, responseId, questionId) => {
@@ -55,7 +55,7 @@ export default function FeedPage() {
             <div className="questions-feed__container">
                 {questions && questions?.map((question) => (
                     <div className="question__container" key={question.id}>
-                        <div className="question-info__container">
+                        <div className="question-info__container" id={question.id}>
                             {question?.username} asked: {question.question}
                             {/* {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>} */}
                             {sessionUser.id === question.user_id && <DeleteQuestionModal questionId={question?.id} />}

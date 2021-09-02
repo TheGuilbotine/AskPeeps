@@ -29,13 +29,13 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
                     </div>
                     <QuestionForm questions={questions}/>
                     <div className="user-questions__container">
-                        <h1>Your Questions:</h1>
+                        <h1>{questions.length ? "Your Questions:" : "No Questions."}</h1>
                         <div className="user-questions__map-container">
                             {questions && questions?.map((question) => (
                                 <div key={question.id}>
-                                    {question.question}
+                                    <a href={`#${question.id}`}>{question.question}</a>
                                     {sessionUser.id === question.user_id && <DeleteQuestionModal questionId={question?.id} />}
-                                    {sessionUser.id === question.user_id && <EditQuestion questionId={question?.id} />}
+                                    {/* {sessionUser.id === question.user_id && <EditQuestion questionId={question.id} />} */}
                                     {/* TODO: add response map when response state updates correctly */}
                                     {/* <div>
                                         {question.responses && question.responses?.map((response) => (

@@ -107,3 +107,10 @@ export default function EditQuestion({responseId, questionId}) {
         </div>
     )
 }
+
+
+
+
+// if (response === "") {
+//     errors.push('You can not leave a blank edit.')
+// } else
