@@ -33,7 +33,7 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
                         <div className="user-questions__map-container">
                             {questions && questions?.map((question) => (
                                 <div key={question.id}>
-                                    <a href={`#${question.id}`}>{question.question}</a>
+                                    <a className="question-link" href={`#${question.id}`}>{question.question}</a>
                                     {sessionUser.id === question.user_id && <DeleteQuestionModal questionId={question?.id} />}
                                     {/* {sessionUser.id === question.user_id && <EditQuestion questionId={question.id} />} */}
                                     {/* TODO: add response map when response state updates correctly */}

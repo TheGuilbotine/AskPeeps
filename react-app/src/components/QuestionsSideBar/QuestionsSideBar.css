@@ -21,3 +21,15 @@
     overflow-y: scroll;
     height: 45vh;
 }
+
+.question-link {
+    text-decoration: none;
+    color: rgba(117,112,112,.6352941176470588);
+    /* color: var(--SIDEBAR_CHARCOAL_HIGHLIGHT); */
+    transition: color .4s;
+    line-height: 30px;
+}
+
+.question-link:hover {
+    color:rgb(36, 88, 201)
+}
