@@ -108,7 +108,11 @@ npm start
 - Edit was being difficult for a while beacuse of idx being used for keys instead of the id of the object mapped from the questions and responses arrays.
 
 ## Future Features
-- 
+<li>Search Questions</li>
+<li>Flag inappropriate or inaccurate content</li>
+<li>Yes vote or No vote content</li>
+<li>Tag questions</li>
+<li>Chat</li>
 
 ## Special Thanks to some great coders
 - <a href='https://github.com/nicopierson'>Nico Pierson</a>
