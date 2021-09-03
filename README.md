@@ -1,12 +1,9 @@
 # AskPeeps by Pierre Guilbault
 <p align=center>
-  <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/react-app/src/images/askpeeps-logo.png' alt='A logo of AskPeeps' />
+  <a href='https://askpeeps.herokuapp.com/'><img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/react-app/src/images/askpeeps-logo.png' alt='A logo of AskPeeps' /></a>
 </p>
 
 ### A safe place for people to ask any and all questions on their minds, to get answers from other curious and interested people from around the globe.
-
-## <p align=center>App Link</p>
-# <p align=center><a href='https://askpeeps.herokuapp.com/'>AskPeeps</a></p>
 
 ## Technologies used
 - <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white&" /></a>
