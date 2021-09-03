@@ -19,7 +19,7 @@
 - Splash page allows users to access login, register, or use a Demo account to check out the app. Along with a biref description of the apps purpose.
 
 <p align=center>
-  <img src='' alt='Splash Page' />
+  <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/splash-ss.png' alt='Splash Page' />
 </p>
 
 - All pages have a footer with links to the creators GitHub and Linkedin accounts as well as links to their other projects.
@@ -27,19 +27,19 @@
 - The Feed Page allows users to view the questions feed, click to see responses to each question and add their own responses. They also have their own questions sidebar where they can see the questions they have asked as well as ask their own question. They can edit or delete any question or response they have asked.
 
 <p align=center>
-  <img src='' alt='Feed Page' />
+  <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/feed-ss.png' alt='Feed Page' />
 </p>
 
 - This is essentially a one page app. All of the actual app interaction will happen in the feed page.
  
 <p align=center>
-  <img src='' alt='Questions Sidebar' />
+  <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/sidebar-ss.png' alt='Questions Sidebar' />
 </p>
 
 - The Responses drop down populates just under each question dynamically.
 
 <p align=center>
-  <img src='' alt='Responses Drop Down' />
+  <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/responses-ss.png' alt='Responses Drop Down' />
 </p>
 
 ## App Link
