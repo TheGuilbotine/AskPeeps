@@ -114,6 +114,6 @@ npm start
 - <a href='https://github.com/meagan13'>Meagan Smith</a>
 - <a href='https://github.com/Simonvargas'>Simon Vargas</a>
 - <a href='https://github.com/Jubintgh'>Jubin Taghdir</a>
-- <a href='https://github.com/tkenned2020'>Torrell Kennedy</a
+- <a href='https://github.com/tkenned2020'>Torrell Kennedy</a>
 - <a href='https://github.com/theflaggship'>Monte Flagg</a>
 - <a href='https://github.com/michellekontoff'>Michelle Kontoff</a>
