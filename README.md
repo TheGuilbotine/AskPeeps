@@ -47,7 +47,6 @@
 
 
 ## Challenges
-- Currently trying to make only responses for the question clicked to show rather than all responses for all questions.
 - Some rerenders were diffiuct to implement smoothly, but eventually were mastered with interesting fetch calls in Thunks because of the nested nature of responses in questions coming from the backend.
 
 ## Special Thanks to some great coders
