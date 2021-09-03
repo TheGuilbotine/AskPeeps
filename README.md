@@ -5,6 +5,9 @@
 
 ### A safe place for people to ask any and all questions on their minds, to get answers from other curious and interested people from around the globe.
 
+## App Link
+<a href='https://askpeeps.herokuapp.com/'>AskPeeps</a>
+
 ## Technologies used
 - <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white&" /></a>
 - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/-CSS3-1572B6?logo=CSS3" /></a>
@@ -42,8 +45,61 @@
   <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/responses-ss.png' alt='Responses Drop Down' />
 </p>
 
-## App Link
-<a href='https://askpeeps.herokuapp.com/'>AskPeeps</a>
+## Installation
+To build/run project locally, please follow these steps:
+
+1. Clone this repository
+
+```shell
+git clone https://github.com/{github-handle}/{app-name}.git
+```
+
+2. Install Pipfile dependencies and create the virtual environment
+```shell
+pipenv install
+```
+
+2. Install npm dependencies for the `/react-app`
+
+```shell
+cd react-app
+npm install
+```
+
+3. In the `/` root directory, create a `.env` based on the `.env.example` with proper settings
+
+4. Setup your PostgreSQL user, password and database and ensure it matches your `.env` file
+
+5. Before running any flask commands, confirm you are in the pipenv virtual env. If not, run the command:
+```shell
+pipenv shell
+```
+
+5. In the root folder, create the database by running in the terminal:
+```shell
+flask db init
+```
+
+6. In the root folder, migrate tables to the database by running in the terminal:
+```shell
+flask db migrate
+```
+
+7. In the root folder, seed the database by running in the terminal:
+```shell
+flask seed all
+```
+
+8. Start the flask backend in the `/` root directory
+```shell
+flask run
+```
+
+9. Start the frontend in the `/react-app` directory
+
+```javascript
+npm start
+```
 
 
 ## Challenges
