@@ -103,7 +103,12 @@ npm start
 
 
 ## Challenges
-- Some rerenders were diffiuct to implement smoothly, but eventually were mastered with interesting fetch calls in Thunks because of the nested nature of responses in questions coming from the backend.
+- Some rerenders were diffiuct to implement smoothly, but eventually were mastered with creating a new slice of state for specifically the users information and related resources because of the nested nature of responses in questions coming from the backend.
+- Finding a way to allow only one drop down to open when clicking on a Responses drop down div button. I was breaking my code into many components and did not bring the function to open and close the div into the right component.
+- Edit was being difficult for a while beacuse of idx being used for keys instead of the id of the object mapped from the questions and responses arrays.
+
+## Future Features
+- 
 
 ## Special Thanks to some great coders
 - <a href='https://github.com/nicopierson'>Nico Pierson</a>
