@@ -1,6 +1,6 @@
 # AskPeeps by Pierre Guilbault
 <p align=center>
-  <a href='https://askpeeps.herokuapp.com/'><img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/react-app/src/images/askpeeps-logo.png' alt='A logo of AskPeeps' /></a>
+  <a target=“_blank” rel="noreferrer" href='https://askpeeps.herokuapp.com/'><img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/react-app/src/images/askpeeps-logo.png' alt='A logo of AskPeeps' /></a>
 </p>
 
 ### A safe place for people to ask any and all questions on their minds, to get answers from other curious and interested people from around the globe.
