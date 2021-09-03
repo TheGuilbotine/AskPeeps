@@ -19,21 +19,23 @@
 - <a href=https://www.sqlalchemy.org/><img src=https://img.shields.io/badge/-SQLAlchemy-red /></a>
 
 ## Brief Site Walkthrough
+
+### All pages have a footer with links to the creators GitHub and Linkedin accounts as well as links to their other projects.
+
 - Splash page allows users to access login, register, or use a Demo account to check out the app. Along with a biref description of the apps purpose.
 
 <p align=center>
   <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/splash-ss.png' alt='Splash Page' />
 </p>
 
-- All pages have a footer with links to the creators GitHub and Linkedin accounts as well as links to their other projects.
 
-- The Feed Page allows users to view the questions feed, click to see responses to each question and add their own responses. They also have their own questions sidebar where they can see the questions they have asked as well as ask their own question. They can edit or delete any question or response they have asked.
+- The Feed Page allows users to view the questions feed, click to see responses to each question and add their own responses. This is essentially a one page app. All of the actual app interaction will happen in the feed page. They can edit or delete any question or response they have asked or answered with.
 
 <p align=center>
   <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/feed-ss.png' alt='Feed Page' />
 </p>
 
-- This is essentially a one page app. All of the actual app interaction will happen in the feed page.
+- They have their own questions sidebar where they can see the questions they have asked as well as ask their own question.  When clicking on a question in their sidebar they will be scrolled to their question in the feed.
  
 <p align=center>
   <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/sidebar-ss.png' alt='Questions Sidebar' />
@@ -44,6 +46,8 @@
 <p align=center>
   <img src='https://github.com/TheGuilbotine/AskPeeps/blob/main/responses-ss.png' alt='Responses Drop Down' />
 </p>
+
+- Much of the app conditionally renders.
 
 ## Installation
 To build/run project locally, please follow these steps:
@@ -105,7 +109,7 @@ npm start
 ## Challenges
 - Some rerenders were diffiuct to implement smoothly, but eventually were mastered with creating a new slice of state for specifically the users information and related resources because of the nested nature of responses in questions coming from the backend.
 - Finding a way to allow only one drop down to open when clicking on a Responses drop down div button. I was breaking my code into many components and did not bring the function to open and close the div into the right component.
-- Edit was being difficult for a while beacuse of idx being used for keys instead of the id of the object mapped from the questions and responses arrays.
+- Edit and Delete was being difficult for a while beacuse of idx being used for keys instead of the id of the object mapped from the questions and responses arrays.
 
 ## Future Features
 <li>Search Questions</li>
