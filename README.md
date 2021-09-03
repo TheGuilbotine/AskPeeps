@@ -5,8 +5,8 @@
 
 ### A safe place for people to ask any and all questions on their minds, to get answers from other curious and interested people from around the globe.
 
-## App Link
-<a href='https://askpeeps.herokuapp.com/'>AskPeeps</a>
+## <p align=center>App Link</p>
+# <p align=center><a href='https://askpeeps.herokuapp.com/'>AskPeeps</a></p>
 
 ## Technologies used
 - <a href="https://www.python.org/"><img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white&" /></a>
