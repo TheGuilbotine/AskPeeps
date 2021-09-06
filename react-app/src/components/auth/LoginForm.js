@@ -43,12 +43,13 @@ const LoginForm = () => {
     // <div className='login-form__page-container'>
       <div className='login-form__container'>
         <form className='login-form' onSubmit={onLogin}>
-          <div className="errors__container">
+          {/* <div className="errors__container">
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
-          </div>
+          </div> */}
           <div className='form-input__container'>
+          {errors?.email && <label className="errors">{errors?.email}</label>}
             <input
               className='form-input'
               placeholder='User Name'
@@ -60,6 +61,7 @@ const LoginForm = () => {
             />
           </div>
           <div className='form-input__container'>
+          {errors?.password && <label className="errors">{errors?.password}</label>}
             <input
               className='form-input'
               placeholder='Password'
