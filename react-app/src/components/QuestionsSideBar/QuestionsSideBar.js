@@ -22,7 +22,7 @@ export default function QuestionSideBar({optionsOn, setOptionsOn}) {
 
     return (
         <>
-            <div className="sidebar" style={!optionsOn ? {transform: 'translateX(100%)'} : {}}>
+            <div onClick={(e)=> e.stopPropagation()} className="sidebar" style={!optionsOn ? {transform: 'translateX(100%)'} : {}}>
                 <div className='sidebar_container'>
                     <div className="arrow-button" onClick={() => setOptionsOn(!optionsOn)}>
                         <i className="fas fa-arrow-right"></i>

@@ -27,7 +27,7 @@ export default function FeedPage() {
     useEffect(() => {
         dispatch(getQuestions())
         dispatch(getUsersQuestions(sessionUser.id))
-    }, [dispatch, sessionUser.id])
+    }, [dispatch])
 
 
     const onDelete = (e, responseId, questionId) => {
@@ -35,15 +35,22 @@ export default function FeedPage() {
         dispatch(destroyResponse(responseId, questionId))
     };
 
+    const clickSidebar = ((e) => {
+        e.stopPropagation()
+        setOptionsOn(!optionsOn)
+
+    })
+
     return (
-        <div>
+        // onClick={(e)=> e.stopPropagation(), setOptionsOn(!optionsOn)}
+        <div onClick={()=> setOptionsOn(false)} >
             {/* <QuestionSideBar /> */}
             <div className="feed-title__container">
                 <h1>Hello {sessionUser?.username} welcome to the Questions Feed</h1>
 
             </div>
             <div>
-                <button className='question__sidebar-button' onClick={()=> setOptionsOn(!optionsOn)}>
+                <button id='sidebar' className='question__sidebar-button' onClick={clickSidebar}>
                     {/* <i className="fas fa-question" /> */}
                     AskPeeps a Question?
                 </button>
@@ -55,8 +62,8 @@ export default function FeedPage() {
             <div className="questions-feed__container">
                 {questions && questions?.map((question) => (
                     <div className="question__container" key={question.id}>
-                        <div className="question-info__container" id={question.id}>
-                            <span className="title-text">{question?.username} asked:</span> {question.question}
+                        <div className="question-info__container">
+                            {question?.username} asked: {question.question}
                             {/* {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>} */}
                             {sessionUser.id === question.user_id && <DeleteQuestionModal questionId={question?.id} />}
                             {sessionUser.id === question.user_id &&  <EditQuestion questionId={question?.id} />}

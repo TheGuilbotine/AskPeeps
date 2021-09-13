@@ -11,6 +11,10 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  console.log('------------------------------------');
+  console.log(errors);
+  console.log('------------------------------------');
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -49,6 +53,7 @@ const LoginForm = () => {
             ))}
           </div>
           <div className='form-input__container'>
+          {/* {errors?.email && <label className="errors">{errors?.email}</label>} */}
             <input
               className='form-input'
               placeholder='User Name'
@@ -60,6 +65,7 @@ const LoginForm = () => {
             />
           </div>
           <div className='form-input__container'>
+          {/* {errors?.password && <label className="errors">{errors?.password}</label>} */}
             <input
               className='form-input'
               placeholder='Password'
