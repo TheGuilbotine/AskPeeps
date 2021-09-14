@@ -9,6 +9,9 @@ search_routes = Blueprint("search", __name__)
 
 @search_routes.route("/")
 def get_results():
+    """
+    Search database for questions.
+    """
     if "question" in request.args:
         search_str = request.args.get("question")
         results = Question.query.filter(
