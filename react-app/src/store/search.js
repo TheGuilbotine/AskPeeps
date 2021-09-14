@@ -10,7 +10,7 @@ export const search = (searchStr) => async (dispatch) => {
     const res = await fetch(`/api/search?${searchQuery}`);
 
     if (res.ok) {
-        const results = await res>JSON();
+        const results = await res.json();
         return results;
     } else {
         return {"errors": [{"field": "server", "message": "An error occurred. Please try again."}]}

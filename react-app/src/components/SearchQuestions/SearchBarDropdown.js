@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { search } from '../../store/search';
 import './SearchBar.css';
 
-export default SearchBarDropdown = ({ setShowModal }) => {
+export default function SearchBarDropdown({ setShowModal }) {
     // const history = useHistory();
     const dispatch = useDispatch();
     const [searchString, setSearchString] = useState('');
@@ -28,7 +28,7 @@ export default SearchBarDropdown = ({ setShowModal }) => {
         }
     }, [dispatch, searchString])
 
-    const handleLink = async (e, key_id) => {
+    const handleLink = async (e) => {
         e.preventDefault();
         setShowModal(false);
         // TODO: link to place in feed
@@ -55,11 +55,11 @@ export default SearchBarDropdown = ({ setShowModal }) => {
             <ul>
                 { results.length > 0 && results.map(result => (
                     <li
-                        onClick={(e) => handleLink(e, `/feed/${result.id}`)}
+                        // onClick={(e) => handleLink(e, `/feed/${result.id}`)}
                         key={result.id}
                         className="search__link"
                     >
-                        {result.question}
+                        <a className="question-link" handleLink={(e)} href={`#${result.id}`}>{result.question}</a>
                     </li>
                 ))}
             </ul>

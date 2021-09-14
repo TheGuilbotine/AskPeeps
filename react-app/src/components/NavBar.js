@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchQuestions';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -10,6 +11,7 @@ const NavBar = () => {
 
     return (
     <div className="navbar__container">
+        <SearchBar />
         <nav className="navbar-links__container">
             <div className="navbar-link__container">
                 {location.pathname !== '/' && <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>

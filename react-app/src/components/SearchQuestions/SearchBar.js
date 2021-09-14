@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { SearchBarModal } from '../../context/Modal';
+import { Modal } from '../../context/Modal';
 import SearchBarDropdown from './SearchBarDropdown';
 import './SearchBar.css'
 
-export default SearchBar = () => {
+export default function SearchBar() {
     const [showModal, setShowModal] = useState(false);
 
     const handleOpen = (e) => {
@@ -19,9 +19,9 @@ export default SearchBar = () => {
     return (
         <div className="search__container">
             {showModal &&
-                <ModalSearchBar onClose={handelClose}>
+                <Modal onClose={handleClose}>
                     <SearchBarDropdown setShowModal={setShowModal}/>
-                </ModalSearchBar>
+                </Modal>
             }
             {!showModal &&
                 <>
