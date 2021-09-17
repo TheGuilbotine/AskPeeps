@@ -59,7 +59,8 @@ export default function SearchBarDropdown({ setShowModal }) {
                         key={result.id}
                         className="search__link"
                     >
-                        <a className="question-link" handleLink={(e)} href={`#${result.id}`}>{result.question}</a>
+                        {/* TODO: async this to scroll and then close modal.... onClick={() => setShowModal(false)}  */}
+                        <a className="question-link" href={`#${result.id}`}>{result.question}</a>
                     </li>
                 ))}
             </ul>
