@@ -1,12 +1,12 @@
 
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { search } from '../../store/search';
 import './SearchBar.css';
 
 export default function SearchBarDropdown({ setShowModal }) {
-    // const history = useHistory();
+    const history = useHistory();
     const dispatch = useDispatch();
     const [searchString, setSearchString] = useState('');
     const [results, setResults] = useState([]);
@@ -30,9 +30,10 @@ export default function SearchBarDropdown({ setShowModal }) {
 
     const handleLink = async (e) => {
         e.preventDefault();
-        setShowModal(false);
+        await setShowModal(false);
         // TODO: link to place in feed
-        // href={#${key_id}}
+        // href=`#${key_id}`
+        // await history.push(url);
     };
 
     return (
@@ -40,7 +41,7 @@ export default function SearchBarDropdown({ setShowModal }) {
         <div className="search-dropdown__container">
             <input
                 className="navbar-search__input"
-                value={search}
+                value={searchString}
                 type='text'
                 placeholder='Search Questions'
                 name='search'
@@ -55,12 +56,12 @@ export default function SearchBarDropdown({ setShowModal }) {
             <ul>
                 { results.length > 0 && results.map(result => (
                     <li
-                        // onClick={(e) => handleLink(e, `/feed/${result.id}`)}
+                        // onClick={(e) => handleLink(e, result.id)}
                         key={result.id}
                         className="search__link"
                     >
                         {/* TODO: async this to scroll and then close modal.... onClick={() => setShowModal(false)}  */}
-                        <a className="question-link" href={`#${result.id}`}>{result.question}</a>
+                        <a className="question-link" href={`#${result.id}`} onClick={()=>setShowModal(false)}>{result.question}</a>
                     </li>
                 ))}
             </ul>

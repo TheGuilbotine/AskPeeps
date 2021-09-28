@@ -1,5 +1,5 @@
 export const search = (searchStr) => async (dispatch) => {
-    const resources =["question"];
+    const resources = ["question", "response"];
 
     let searchArr = [];
     for (let key of resources) {
