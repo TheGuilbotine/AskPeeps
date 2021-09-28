@@ -28,14 +28,6 @@ export default function SearchBarDropdown({ setShowModal }) {
         }
     }, [dispatch, searchString])
 
-    const handleLink = async (e) => {
-        e.preventDefault();
-        await setShowModal(false);
-        // TODO: link to place in feed
-        // href=`#${key_id}`
-        // await history.push(url);
-    };
-
     return (
         <>
         <div className="search-dropdown__container">
@@ -56,11 +48,9 @@ export default function SearchBarDropdown({ setShowModal }) {
             <ul>
                 { results.length > 0 && results.map(result => (
                     <li
-                        // onClick={(e) => handleLink(e, result.id)}
                         key={result.id}
                         className="search__link"
                     >
-                        {/* TODO: async this to scroll and then close modal.... onClick={() => setShowModal(false)}  */}
                         <a className="question-link" href={`#${result.id}`} onClick={()=>setShowModal(false)}>{result.question}</a>
                     </li>
                 ))}
