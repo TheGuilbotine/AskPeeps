@@ -11,7 +11,6 @@ const NavBar = () => {
 
     return (
     <div className="navbar__container">
-        <SearchBar />
         <nav className="navbar-links__container">
             <div className="navbar-link__container">
                 {location.pathname !== '/' && <NavLink className="navbar-link" to='/' exact={true} activeClassName='active'>
@@ -34,6 +33,7 @@ const NavBar = () => {
                 </NavLink>
             </div>}
             {sessionUser && <div className="navbar-link__container">
+                <SearchBar />
                 <LogoutButton className="navbar-button"/>
             </div>}
         </nav>
