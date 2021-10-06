@@ -18,7 +18,7 @@ const NavBar = () => {
                 </NavLink>}
             </div>
             <div className="navbar-link__container">
-                {sessionUser && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
+                {location.pathname === '/' && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
                     {sessionUser.username}'s Questions Feed
                 </NavLink>}
             </div>
