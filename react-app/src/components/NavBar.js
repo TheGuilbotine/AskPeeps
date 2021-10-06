@@ -18,12 +18,12 @@ const NavBar = () => {
                 </NavLink>}
             </div>
             <div className="navbar-link__container">
-                {(location.pathname === '/' & sessionUser) ? <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
-                    {sessionUser.username}'s Questions Feed
-                </NavLink> : null}
-                {location.pathname === '/' && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
+                {sessionUser && <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
                     {sessionUser.username}'s Questions Feed
                 </NavLink>}
+                {/* {(location.pathname === '/' & sessionUser) ? <NavLink className="navbar-link" to='/feed' exact={true} activeClassName='active'>
+                    {sessionUser.username}'s Questions Feed
+                </NavLink> : null} */}
             </div>
             {!sessionUser && <div className="navbar-link__container">
                 <NavLink className="navbar-link" to='/login' exact={true} activeClassName='active'>
