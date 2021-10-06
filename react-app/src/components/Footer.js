@@ -24,30 +24,29 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="column__container">
-                                <div className="column__title">Contact me on LinkedIn</div>
+                                <div className="column__title">Contact me</div>
                                 <ul>
                                     <li>
                                         <a className='footer__link' href='https://www.linkedin.com/in/pierre-guilbault-30020549/' target="_blank">
-                                            Pierre Guilbault <i className="fab fa-linkedin"></i>
+                                            LinkedIn <i className="fab fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li className="asterisk">*</li>
+                                    <li>
+                                        <a className='footer__link' href='https://angel.co/u/pierre-guilbault-1' target="_blank">
+                                            AngelList <i className="fab fa-angellist"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div className="column__container">
-                                <div className="column__title">My Projects</div>
+                                <div className="column__title">My Portfolio</div>
                                 <ul>
                                     <li>
-                                        <a className='footer__link' href='https://goodcipa.herokuapp.com/' target="_blank">
-                                            GoodCIPA
+                                        <a className='footer__link' href='https://theguilbotine.github.io/Portfolio/' target="_blank">
+                                            Pierre's Portfolio
                                         </a>
                                     </li>
-                                    <li className="asterisk">*</li>
-                                    <li>
-                                        <a className='footer__link' href='https://table--talk.herokuapp.com/' target="_blank">
-                                            TableTalk
-                                        </a>
-                                    </li>
-                                    <li></li>
                                 </ul>
                             </div>
                         </div>
