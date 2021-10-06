@@ -61,9 +61,9 @@ export default function FeedPage() {
             </div>
             <div className="questions-feed__container">
                 {questions && questions?.map((question) => (
-                    <div className="question__container" key={question.id}>
+                    <div className="question__container" key={question.id}  id={question.id}>
                         <div className="question-info__container">
-                            {question?.username} asked: {question.question}
+                            <a  name={question.id}>{question?.username} asked: {question.question}</a>
                             {/* {sessionUser.id == question.user_id && <button className="delete--button" onClick={() => dispatch(destroyQuestion(question.id))}><i className="far fa-trash-alt" /></button>} */}
                             {sessionUser.id === question.user_id && <DeleteQuestionModal questionId={question?.id} />}
                             {sessionUser.id === question.user_id &&  <EditQuestion questionId={question?.id} />}

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchQuestions';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -32,6 +33,7 @@ const NavBar = () => {
                 </NavLink>
             </div>}
             {sessionUser && <div className="navbar-link__container">
+                <SearchBar />
                 <LogoutButton className="navbar-button"/>
             </div>}
         </nav>

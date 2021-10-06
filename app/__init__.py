@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.question_routes import question_routes
 from .api.response_routes import response_routes
+from .api.search_routes import search_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(question_routes, url_prefix='/api/questions')
 app.register_blueprint(response_routes, url_prefix='/api/responses')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 # Andru says this keeps your versions from making redundant migration files

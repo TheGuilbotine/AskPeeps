@@ -23,3 +23,32 @@
     position: absolute;
     background-color:white;
   }
+
+  #search-modal {
+    position: fixed;
+    top: 2px;
+    right: 0;
+    left: 5px;
+    bottom: 0;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 30000;
+  }
+
+  #search-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #search-modal-content {
+    padding: 0 13px;
+    border-radius: 5px;
+    position: absolute;
+    background-color:white;
+  }
