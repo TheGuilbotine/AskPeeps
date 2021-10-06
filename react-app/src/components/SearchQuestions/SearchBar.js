@@ -31,7 +31,7 @@ export default function SearchBar() {
                         placeholder="Search Questions"
                         onFocus={handleOpen}
                     /> */}
-                    <i className={"fas fa-search"} onClick={handleOpen}></i>
+                    <i className={"fas fa-search search-icon"} onClick={handleOpen}></i>
                 </>
             }
         </div>

@@ -6,7 +6,7 @@
     z-index: 11;
     right: 50vw;
     width: 25vw;
-    top: 4px;
+    top: 5px;
 }
 
 .navbar-search__input {
@@ -27,11 +27,11 @@ div.search-results__container
     background-color: #f5f5f5;
     display: block;
     position: fixed;
-    width: 23vw;
+    width: 25vw;
     height: auto;
-    top: 36px;
+    top: 56px;
     margin: 5px;
-    right: 51vw;
+    left: 0;
 }
 
 div.search-dropdown__container i
@@ -89,4 +89,9 @@ div.search-dropdown__container i
         display: none;
     }
 
+}
+
+.search-icon {
+    color: black;
+    font-size: 30px;
 }
