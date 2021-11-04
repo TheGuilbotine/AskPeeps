@@ -7,6 +7,7 @@ export const search = (searchStr) => async (dispatch) => {
     }
 
     const searchQuery = searchArr.join("&");
+    // Post route?
     const res = await fetch(`/api/search?${searchQuery}`);
 
     if (res.ok) {
