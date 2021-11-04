@@ -7,7 +7,7 @@ search_routes = Blueprint("search", __name__)
 # Search Questions
 
 
-@search_routes.route("/")
+@search_routes.route("/", strict_slashes=False)
 def get_results():
     """
     Search database for questions.
